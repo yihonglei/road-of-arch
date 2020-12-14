@@ -1,0 +1,54 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.jpeony</groupId>
+    <artifactId>java</artifactId>
+    <version>1.0</version>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>java-algorithms</module>
+        <module>java-encrypt-decrypt</module>
+    </modules>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <fastjson.version>1.2.49</fastjson.version>
+        <lombok.version>1.18.2</lombok.version>
+        <CCPREST.version>2.6</CCPREST.version>
+        <bcprov.version>1.45</bcprov.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- lombok -->
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
+            <!--fastJson-->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+
+            <!-- 加密/解密 -->
+            <!--            <dependency>-->
+            <!--                <groupId>com.cloopen</groupId>-->
+            <!--                <artifactId>CCPREST</artifactId>-->
+            <!--                <version>${CCPREST.version}</version>-->
+            <!--            </dependency>-->
+            <!--            <dependency>-->
+            <!--                <groupId>org.bouncycastle</groupId>-->
+            <!--                <artifactId>bcprov-jdk16</artifactId>-->
+            <!--                <version>${bcprov.version}</version>-->
+            <!--            </dependency>-->
+        </dependencies>
+    </dependencyManagement>
+
+</project>

@@ -1,0 +1,39 @@
+server:
+  port: 9003
+spring:
+  application:
+    name: eureka-gateway-zuul
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:9000/eureka/
+  instance:
+    instance-id: eureka-gateway-zuul-9003
+    prefer-ip-address: true
+#zuul:
+  #routes:
+    # 1、指定微服务名称和路径映射
+    #eureka-provider-order: /order-service/**
+    # 2、通过指定微服务名称映射路径
+    #use-routing:
+      #serviceId: eureka-provider-order
+    #use-routing:
+      #path: /order-service/**
+    # 3、使用这种方式配置的路由，不会作为HystrixCommand执行，同时，也不能使用Ribbon来负载均衡多个URL
+    #use-routing:
+      #url: http://localhost:8001/
+      #path: /order-service/**
+      # 过滤敏感头信息，若不设置，cookie，set-cookie和authrotion三个同步信息是不能传递的
+      #sensitiveHeaders:
+
+  # 表示关闭所有通过微服务名称映射访问
+  #ignored-services: "*"
+  # 全局配置，为所有服务访问统计加上一个前缀路径，strip-prefix默认为true，不加全局路径，如果未false，加全局路径
+  #prefix: /order-api
+  #strip-prefix: true
+
+# 开启debug日志
+#logging:
+  #level:
+    #com:
+      #netflix: debug

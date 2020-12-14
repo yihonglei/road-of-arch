@@ -1,0 +1,18 @@
+# config-client从config-server获取配置，config-server从远程git获取配置
+# 将获取的配置，替换掉config-client工程中的application.yml配置内容。
+# 配置会组成请求config-server地址，获取内容order-dev.yml里面dev内容：
+# http://localhost:9004/master/order-dev.yml
+spring:
+  application:
+    name: order
+  cloud:
+    config:
+      uri: http://localhost:9004/
+      profile: dev
+      label: master
+# 开放监控端口
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

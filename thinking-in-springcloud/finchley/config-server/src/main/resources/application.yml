@@ -1,0 +1,14 @@
+server:
+  port: 9004
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          # git为public权限，可以不加用户名、密码访问
+          uri: https://github.com/yihonglei/jpeony-cloud-config.git
+          username:
+          password:
+          #search-paths:

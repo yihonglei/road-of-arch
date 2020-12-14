@@ -1,0 +1,31 @@
+spring:
+  datasource:
+    druid:
+      username: root
+      password: 123456
+      jdbcUrl: jdbc:mysql://localhost:3306/jpeony?characterEncoding=utf-8&allowMultiQueries=true
+      driverClassName: com.mysql.jdbc.Driver
+      initialSize: 5
+      minIdle: 5
+      maxActive: 20
+      maxWait: 60000
+      timeBetweenEvictionRunsMillis: 60000
+      minEvictableIdleTimeMillis: 300000
+      validationQuery: SELECT 1 FROM DUAL
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false
+      poolPreparedStatements: true
+      filters: stat,wall
+      maxPoolPreparedStatementPerConnectionSize: 20
+      useGlobalDataSourceStat: true
+      connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    virtualHost: /vhost_yihonglei
+    username: guest
+    password: guest
+    connectionTimeout: 10000
+test:
+  value: I am Chinese!我是中国人!

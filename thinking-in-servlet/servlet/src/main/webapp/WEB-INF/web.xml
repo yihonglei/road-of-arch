@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app
+        xmlns="http://java.sun.com/xml/ns/javaee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+     http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+        version="3.0">
+    <!-- Servlet及映射URL配置 -->
+    <servlet>
+        <!-- Servlet名称 -->
+        <servlet-name>WelcomeServlet</servlet-name>
+        <!-- Servlet Class -->
+        <servlet-class>com.jpeony.servlet.WelcomeServlet</servlet-class>
+        <!--
+             当值为0或者大于0时，表示容器在应用启动时就加载这个servlet；
+             当是一个负数时或者没有指定时，则指示容器在该servlet被选择时才加载。
+             正数的值越小，启动该servlet的优先级越高。
+
+             如果我们在web.xml中设置了多个servlet的时候，可以使用load-on-startup来指定servlet的加载顺序，
+             服务器会根据load-on-startup的大小依次对servlet进行初始化。
+             不过即使我们将load-on-startup设置重复也不会出现异常，服务器会自己决定初始化顺序。
+         -->
+        <load-on-startup>10</load-on-startup>
+    </servlet>
+
+    <servlet-mapping>
+        <!-- Servlet名称 -->
+        <servlet-name>WelcomeServlet</servlet-name>
+        <!-- 请求url -->
+        <url-pattern>/myWebTest</url-pattern>
+    </servlet-mapping>
+
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+</web-app>
