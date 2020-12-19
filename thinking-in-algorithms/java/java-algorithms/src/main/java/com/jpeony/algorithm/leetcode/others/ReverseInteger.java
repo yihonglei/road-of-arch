@@ -1,4 +1,4 @@
-package com.jpeony.algorithm.leetcode;
+package com.jpeony.algorithm.leetcode.others;
 
 /**
  * 【题源】https://leetcode-cn.com/problems/reverse-integer/

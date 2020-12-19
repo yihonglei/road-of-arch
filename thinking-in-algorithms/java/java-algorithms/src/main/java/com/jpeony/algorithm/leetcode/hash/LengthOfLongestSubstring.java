@@ -1,4 +1,4 @@
-package com.jpeony.algorithm.leetcode;
+package com.jpeony.algorithm.leetcode.hash;
 
 import java.util.HashSet;
 import java.util.Set;

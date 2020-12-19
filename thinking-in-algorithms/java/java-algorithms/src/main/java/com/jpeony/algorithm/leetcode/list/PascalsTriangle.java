@@ -1,4 +1,4 @@
-package com.jpeony.algorithm.leetcode;
+package com.jpeony.algorithm.leetcode.list;
 
 import java.util.ArrayList;
 import java.util.List;
