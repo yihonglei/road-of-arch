@@ -2,6 +2,7 @@ package com.jpeony.algorithm.leetcode.linkied;
 
 /**
  * 【题源】https://leetcode-cn.com/problems/add-two-numbers/
+ * 俩数之和。
  *
  * @author yihonglei
  */
@@ -13,6 +14,7 @@ public class AddTwoNumbers {
     public static class ListNode {
         int val;
         ListNode next;
+
         ListNode(int x) {
             val = x;
         }
