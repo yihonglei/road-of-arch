@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+            http://www.springframework.org/schema/context
+            http://www.springframework.org/schema/context/spring-context-4.1.xsd
+            http://www.springframework.org/schema/aop
+            http://www.springframework.org/schema/aop/spring-aop-4.1.xsd
+            http://www.springframework.org/schema/tx
+            http://www.springframework.org/schema/tx/spring-tx-4.1.xsd
+            http://www.springframework.org/schema/mvc
+            http://www.springframework.org/schema/mvc/spring-mvc-4.1.xsd
+            http://www.springframework.org/schema/context
+            http://www.springframework.org/schema/context/spring-context-4.1.xsd">
+    <!--  配置自动扫描的包  -->
+    <context:component-scan base-package="com.jpeony.springmvc"/>
+    <!-- 解决mvc:view-controller配置后RequestMapping映射地址报404的问题 -->
+    <mvc:annotation-driven></mvc:annotation-driven>
+
+    <!-- 视图解析器 -->
+    <bean id="viewResolver"
+          class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <!-- 配置前缀 -->
+        <property name="prefix" value="/WEB-INF/views/"/>
+        <!-- 配置后缀 -->
+        <property name="suffix" value=".jsp"/>
+    </bean>
+
+    <!-- 自定义视图解析器:BeanNameViewResolver使用视图的名字解析视图 -->
+    <bean class="org.springframework.web.servlet.view.BeanNameViewResolver">
+        <!--
+           设置该自定义视图解析器BeanNameViewResolver与
+           InternalResourceViewResolver视图解析器的优先级值，
+           InternalResourceViewResolver的order默认值为Integer的最大值，
+           BeanNameViewResolver以下设置order为100，order值越小， 视图解析器的优先级越高。
+           该配置文件中自定视图解析器BeanNameViewResolver的优先级高于
+           InternalResourceViewResolver，每次先使用BeanNameViewResolver解析视图，
+           如果实现不了需求， 自动调用InternalResourceViewResolver解析视图。
+        -->
+        <property name="order">
+            <value>100</value>
+        </property>
+    </bean>
+
+    <!-- 配置直接转发的页面 -->
+    <mvc:view-controller path="/success" view-name="success"/>
+</beans>
