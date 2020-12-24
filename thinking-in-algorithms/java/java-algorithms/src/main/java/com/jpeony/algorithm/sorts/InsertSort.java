@@ -14,13 +14,14 @@ public class InsertSort {
         }
 
         for (int i = 1; i < n; i++) {
+            // 未排序区间的第一个元素
             int value = arr[i];
+            // 默认已排序区间为第一个元素
             int j = i - 1;
-            // 在已排序区间找插入位置
+            // 将未排序区间的第一个元素在已排序区间找到合适的位置插入
             for (; j >= 0; --j) {
-                // 比较
+                // 比较&移动
                 if (arr[j] > value) {
-                    // 移动
                     arr[j + 1] = arr[j];
                 } else {
                     break;

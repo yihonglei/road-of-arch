@@ -12,8 +12,9 @@ public class BubbleSort {
         if (n <= 1) {
             return;
         }
-
+        // 循环轮次
         for (int i = 0; i < n - 1; i++) {
+            // 每一轮比较出一个最大值固定，已经冒到上层的元素，无需再比较，优化比较性能
             for (int j = 0; j < n - 1 - i; j++) {
                 // 比较&交换
                 if (arr[j] > arr[j + 1]) {
