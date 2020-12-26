@@ -16,13 +16,30 @@
 
 # 三 Java 基础
 
-[jdk-source-code-reading](https://github.com/yihonglei/jdk-source-code-reading)
+## [jdk-source-code-reading](https://github.com/yihonglei/jdk-source-code-reading)
 
 含JVM原理、多线程、IO、NIO、反射、注解、JDBC、Java8等。
 
-# 四 Java 框架 [实战项目](https://github.com/yihonglei/daisy-framework)
+# 四 Java 框架
 
-Servlet、Spring、SpringMVC、SpringBoot、SpringCloud等。
+## thinking-in-servlet
+
+## thinking-in-Spring
+
+## thinking-in-springmvc
+
+## thinking-in-springboot
+
+## thinking-in-springcloud
+
+## thinking-in-netty
+
+## thinking-in-dubbo
+
+## thinking-in-mybatis
+
+
+## daisy-framework [实战项目](https://github.com/yihonglei/daisy-framework)
 
 含Spring体系、MyBatis、MySql、消息中间件、缓存中间件、分布式事务、分布式锁、
 
@@ -30,7 +47,7 @@ Servlet、Spring、SpringMVC、SpringBoot、SpringCloud等。
 
 # 五 MySql 原理 
 
-[MySql原理](https://blog.csdn.net/yhl_jxy/category_9285628.html)
+## thinking-in-mysql
 
 含MySql原理、索引、调优等。
 
@@ -50,7 +67,9 @@ RocketMQ、Kafka、RabbitMQ等。
 
 ## daisy-framework [实战项目](https://github.com/yihonglei/daisy-framework)
 
-分布式架构设计实战项目，含开发规范，基础通信，基础组件，网络安全，系统稳定性，数据分析，经典技术方案，系统监控以及运维部署等实战。
+分布式架构设计实战项目，含开发规范，基础通信，基础组件，网络安全，系统稳定性，
+
+数据分析，经典技术方案，系统监控以及运维部署等实战。
 
 ## 1、开发规范
 
