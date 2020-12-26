@@ -1,5 +1,6 @@
 # 概述
 
+[思维导图](https://github.com/yihonglei/road-of-arch/tree/master/detail-xmind)
 
 # MySql 基础
 
