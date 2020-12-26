@@ -1,6 +1,3 @@
-# 概述
-[思维导图](https://github.com/yihonglei/thinking-in-algorithms/tree/master/docs)
-
 # 数据结构
 
 [数组](https://blog.csdn.net/yhl_jxy/article/details/51760123)
