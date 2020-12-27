@@ -24,6 +24,8 @@
 
 [【基础】流程控制语句](https://jpeony.blog.csdn.net/article/details/52302671)
 
+[【基础】自定义函数](https://jpeony.blog.csdn.net/article/details/52290407)
+
 # MySql 进阶
 
 
