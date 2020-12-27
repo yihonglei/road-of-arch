@@ -20,6 +20,8 @@
 
 [【基础】事务控制语句](https://jpeony.blog.csdn.net/article/details/52446619)
 
+[【基础】SQL MODE](https://jpeony.blog.csdn.net/article/details/52458663)
+
 # MySql 进阶
 
 
