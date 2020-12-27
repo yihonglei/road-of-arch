@@ -28,6 +28,8 @@
 
 [【基础】分区功能](https://jpeony.blog.csdn.net/article/details/52516252)
 
+[【基础】触发器](https://jpeony.blog.csdn.net/article/details/52311025)
+
 # MySql 进阶
 
 
