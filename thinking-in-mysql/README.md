@@ -18,6 +18,8 @@
 
 [【基础】锁定语句](https://jpeony.blog.csdn.net/article/details/52437445)
 
+[【基础】事务控制语句](https://jpeony.blog.csdn.net/article/details/52446619)
+
 # MySql 进阶
 
 
