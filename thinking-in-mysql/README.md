@@ -30,9 +30,14 @@
 
 [【基础】触发器](https://jpeony.blog.csdn.net/article/details/52311025)
 
+[【基础】SQL 执行频率](https://jpeony.blog.csdn.net/article/details/52582490)
+
 # MySql 进阶
 
 
 # MySql 运维架构
+
+[【运维】定期分析、检查表、优化表](https://jpeony.blog.csdn.net/article/details/52605007)
+
 
 
