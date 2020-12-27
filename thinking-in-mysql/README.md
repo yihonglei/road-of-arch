@@ -12,6 +12,8 @@
 
 [【基础】游标的使用](https://jpeony.blog.csdn.net/article/details/52301819)
 
+[【基础】字符集的设置](https://jpeony.blog.csdn.net/article/details/52366135)
+
 # MySql 进阶
 
 
