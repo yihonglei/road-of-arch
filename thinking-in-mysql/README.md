@@ -16,6 +16,8 @@
 
 [【基础】最大连接数](https://jpeony.blog.csdn.net/article/details/52387237)
 
+[【基础】锁定语句](https://jpeony.blog.csdn.net/article/details/52437445)
+
 # MySql 进阶
 
 
