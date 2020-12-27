@@ -22,6 +22,8 @@
 
 [【基础】SQL MODE](https://jpeony.blog.csdn.net/article/details/52458663)
 
+[【基础】流程控制语句](https://jpeony.blog.csdn.net/article/details/52302671)
+
 # MySql 进阶
 
 
