@@ -8,6 +8,8 @@
 
 [【基础】数值类型](https://jpeony.blog.csdn.net/article/details/52259447)
 
+[【基础】日期时间类型](https://jpeony.blog.csdn.net/article/details/52263704)
+
 # MySql 进阶
 
 
