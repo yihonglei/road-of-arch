@@ -26,6 +26,8 @@
 
 [【基础】自定义函数](https://jpeony.blog.csdn.net/article/details/52290407)
 
+[【基础】分区功能](https://jpeony.blog.csdn.net/article/details/52516252)
+
 # MySql 进阶
 
 
