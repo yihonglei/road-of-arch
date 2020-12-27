@@ -14,6 +14,8 @@
 
 [【基础】字符集的设置](https://jpeony.blog.csdn.net/article/details/52366135)
 
+[【基础】最大连接数](https://jpeony.blog.csdn.net/article/details/52387237)
+
 # MySql 进阶
 
 
