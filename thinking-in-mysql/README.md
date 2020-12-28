@@ -22,23 +22,23 @@
 
 [【基础】聚合函数、分组、having子句](https://jpeony.blog.csdn.net/article/details/52240263)
 
-[【基础】游标的使用](https://jpeony.blog.csdn.net/article/details/52301819)
-
-[【基础】锁定语句](https://jpeony.blog.csdn.net/article/details/52437445)
+[【基础】流程控制语句](https://jpeony.blog.csdn.net/article/details/52302671)
 
 [【基础】事务控制语句](https://jpeony.blog.csdn.net/article/details/52446619)
 
-[【基础】流程控制语句](https://jpeony.blog.csdn.net/article/details/52302671)
+[【基础】锁定语句](https://jpeony.blog.csdn.net/article/details/52437445)
+
+[【基础】游标的使用](https://jpeony.blog.csdn.net/article/details/52301819)
 
 [【基础】自定义函数](https://jpeony.blog.csdn.net/article/details/52290407)
 
 [【基础】触发器](https://jpeony.blog.csdn.net/article/details/52311025)
 
-[【基础】视图](https://jpeony.blog.csdn.net/article/details/52287596)
-
 [【基础】存储过程](https://jpeony.blog.csdn.net/article/details/52290411)
 
 [【基础】存储过程IN、OUT、INOUT参数模式](https://jpeony.blog.csdn.net/article/details/52296546)
+
+[【基础】视图](https://jpeony.blog.csdn.net/article/details/52287596)
 
 # MySql 进阶
 
