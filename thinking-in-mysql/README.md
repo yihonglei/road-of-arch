@@ -18,7 +18,7 @@
 
 [【基础】运算符大全](https://jpeony.blog.csdn.net/article/details/52266300)
 
-[【基础】内置函数大全](https://jpeony.blog.csdn.net/article/details/52273504)
+[【基础】内置函数](https://jpeony.blog.csdn.net/article/details/52273504)
 
 [【基础】聚合函数、分组、having子句](https://jpeony.blog.csdn.net/article/details/52240263)
 
