@@ -26,8 +26,6 @@
 
 [【基础】事务控制语句](https://jpeony.blog.csdn.net/article/details/52446619)
 
-[【基础】锁定语句](https://jpeony.blog.csdn.net/article/details/52437445)
-
 [【基础】锁和事务隔离级别](https://jpeony.blog.csdn.net/article/details/88657913)
 
 [【基础】游标的使用](https://jpeony.blog.csdn.net/article/details/52301819)
