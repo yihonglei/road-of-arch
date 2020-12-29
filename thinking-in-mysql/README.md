@@ -28,6 +28,8 @@
 
 [【基础】锁定语句](https://jpeony.blog.csdn.net/article/details/52437445)
 
+[【基础】锁和事务隔离级别](https://jpeony.blog.csdn.net/article/details/88657913)
+
 [【基础】游标的使用](https://jpeony.blog.csdn.net/article/details/52301819)
 
 [【基础】自定义函数](https://jpeony.blog.csdn.net/article/details/52290407)
@@ -49,8 +51,6 @@
 [【进阶】explain执行计划详解](https://jpeony.blog.csdn.net/article/details/88570154)
 
 [【进阶】索引优化原则](https://jpeony.blog.csdn.net/article/details/88636685)
-
-[【进阶】锁和事务隔离级别](https://jpeony.blog.csdn.net/article/details/88657913)
 
 # MySql 运维架构
 
