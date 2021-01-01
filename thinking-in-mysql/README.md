@@ -18,7 +18,7 @@
 
 [【基础】运算符大全](https://jpeony.blog.csdn.net/article/details/52266300)
 
-[【基础】函数大全](https://jpeony.blog.csdn.net/article/details/52273504)
+[【基础】内置函数](https://jpeony.blog.csdn.net/article/details/52273504)
 
 [【基础】聚合函数、分组、having子句](https://jpeony.blog.csdn.net/article/details/52240263)
 
@@ -26,7 +26,7 @@
 
 [【基础】事务控制语句](https://jpeony.blog.csdn.net/article/details/52446619)
 
-[【基础】锁定语句](https://jpeony.blog.csdn.net/article/details/52437445)
+[【基础】锁和事务](https://jpeony.blog.csdn.net/article/details/88657913)
 
 [【基础】游标的使用](https://jpeony.blog.csdn.net/article/details/52301819)
 
@@ -49,8 +49,6 @@
 [【进阶】explain执行计划详解](https://jpeony.blog.csdn.net/article/details/88570154)
 
 [【进阶】索引优化原则](https://jpeony.blog.csdn.net/article/details/88636685)
-
-[【进阶】锁和事务隔离级别](https://jpeony.blog.csdn.net/article/details/88657913)
 
 # MySql 运维架构
 
