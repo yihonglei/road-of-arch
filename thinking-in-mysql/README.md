@@ -68,12 +68,3 @@
 
 [【运维】字符集的设置](https://jpeony.blog.csdn.net/article/details/52366135)
 
-# MySql 面试大全
-
-[数据库范式、事务、ACID、隔离级别、MVCC、事务两阶段提交等](https://jpeony.blog.csdn.net/article/details/111996944)
-
-[索引底层实现、聚簇索引、索引优化原则、联合索引、自增ID等](https://jpeony.blog.csdn.net/article/details/112094575)
-
-[锁、MySQL权限、binlog、大表删除、大表分页、并发控制等](https://jpeony.blog.csdn.net/article/details/112094591)
-
-
