@@ -10,8 +10,26 @@ import java.util.Arrays;
  */
 public class SumOfEvenNumbersAfterQueries {
     private static int[] sumEvenAfterQueries(int[] arr, int[][] queries) {
+        int[] result = new int[queries.length];
+        for (int i = 0; i < arr.length; i++) {
+            int[] twoArr = queries[i];
+            int modifyIndex = twoArr[1];
+            int modifyValue = twoArr[0];
 
-        return null;
+            int modifyAfter = arr[modifyIndex] + modifyValue;
+
+            arr[modifyIndex] = modifyAfter;
+
+            int sum = 0;
+            for (int tmp : arr) {
+                if (Math.abs(tmp) % 2 != 0) {
+                    continue;
+                }
+                sum = sum + tmp;
+            }
+            result[i] = sum;
+        }
+        return result;
     }
 
     public static void main(String[] args) {
