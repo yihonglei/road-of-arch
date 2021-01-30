@@ -2,6 +2,7 @@ package com.jpeony.algorithm.leetcode.linkied;
 
 /**
  * 【题源】https://leetcode-cn.com/problems/merge-two-sorted-lists/
+ * 合并两个有序链表
  *
  * @author yihonglei
  */
