@@ -1,8 +1,7 @@
-package com.jpeony.algorithm.leetcode.linkied;
+package com.jpeony.algorithm.leetcode.linked;
 
 /**
- * 【题源】https://leetcode-cn.com/problems/reverse-linked-list/
- * 单链表反转
+ * 【单链表反转】https://leetcode-cn.com/problems/reverse-linked-list/
  *
  * @author yihonglei
  */

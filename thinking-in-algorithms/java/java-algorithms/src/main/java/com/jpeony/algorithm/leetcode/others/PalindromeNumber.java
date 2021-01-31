@@ -1,8 +1,7 @@
 package com.jpeony.algorithm.leetcode.others;
 
 /**
- * 【题源】https://leetcode-cn.com/problems/palindrome-number/
- * 回文数
+ * 【回文数】https://leetcode-cn.com/problems/palindrome-number/
  *
  * @author yihonglei
  */

@@ -1,8 +1,7 @@
-package com.jpeony.algorithm.leetcode.linkied;
+package com.jpeony.algorithm.leetcode.linked;
 
 /**
- * 【题源】https://leetcode-cn.com/problems/merge-two-sorted-lists/
- * 合并两个有序链表
+ * 【合并两个有序链表】https://leetcode-cn.com/problems/merge-two-sorted-lists/
  *
  * @author yihonglei
  */

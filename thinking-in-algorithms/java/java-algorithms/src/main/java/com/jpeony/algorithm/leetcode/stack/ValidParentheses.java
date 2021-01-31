@@ -3,14 +3,13 @@ package com.jpeony.algorithm.leetcode.stack;
 import java.util.Stack;
 
 /**
- * 【题源】https://leetcode-cn.com/problems/valid-parentheses/
- * 有效括号。
+ * 【有效括号】https://leetcode-cn.com/problems/valid-parentheses/
  *
  * @author yihonglei
  */
 public class ValidParentheses {
 
-    public static boolean isValid(String s) {
+    private static boolean isValid(String s) {
         if (s.equals("")) {
             return true;
         }

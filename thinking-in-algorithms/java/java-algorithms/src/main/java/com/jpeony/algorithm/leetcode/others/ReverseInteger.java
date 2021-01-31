@@ -1,7 +1,7 @@
 package com.jpeony.algorithm.leetcode.others;
 
 /**
- * 【题源】https://leetcode-cn.com/problems/reverse-integer/
+ * 【整数反转】https://leetcode-cn.com/problems/reverse-integer/
  *
  * @author yihonglei
  */
@@ -23,7 +23,7 @@ public class ReverseInteger {
             x /= 10;
         }
 
-        return (int)res != res ? 0 : (int)res * flag;
+        return (int) res != res ? 0 : (int) res * flag;
     }
 
     public static void main(String[] args) {
