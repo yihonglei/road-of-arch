@@ -9,7 +9,7 @@ import java.util.Arrays;
  */
 public class SotedMergeLCCI {
     /**
-     * 数组合并，直接排序，不需要考虑两个分别是有序数组。
+     * 先合并数组，然后进行排序，不需要考虑两个两个数组是有序的。
      * 时间复杂度：O((m+n)log(m+n))
      * 空间复杂度：O(log(m+n))
      */
@@ -40,7 +40,7 @@ public class SotedMergeLCCI {
     }
 
     /**
-     * 双指针，利用两个数组有序的特性，新建一个临时数组，将两个数组分别循环，每次讲最小值放入数组。
+     * 双指针，利用两个数组有序的特性，新建一个临时数组，将两个数组分别循环，每次比较出较小数放入数组。
      * 时间复杂度：O(m + n）
      * 空间复杂度：O(m + n)
      */
@@ -71,12 +71,26 @@ public class SotedMergeLCCI {
     }
 
     /**
-     * 逆向双指针，A 后半部分是空的，可以直接覆盖不影响结果，取较大者放入A的后门。
+     * 逆向双指针，A 数组后半部分是空的，可以直接覆盖不影响结果，取较大者放入 A 数组的后面。
      * 时间复杂度：O(m + n)
      * 空间复杂度：O(1)
      */
     private static void merge3(int[] A, int m, int[] B, int n) {
-
+        int pa = m - 1, pb = n - 1;
+        int tail = m + n - 1;
+        int cur;
+        while (pa >= 0 || pb >= 0) {
+            if (pa == -1) {
+                cur = B[pb--];
+            } else if (pb == -1) {
+                cur = A[pa--];
+            } else if (A[pa] > B[pb]) {
+                cur = A[pa--];
+            } else {
+                cur = B[pb--];
+            }
+            A[tail--] = cur;
+        }
     }
 
     public static void main(String[] args) {
@@ -85,9 +99,9 @@ public class SotedMergeLCCI {
         // 合并、排序
         //merge1(A, A.length - B.length, B, B.length);
         // 双指针
-        merge2(A, A.length - B.length, B, B.length);
+        // merge2(A, A.length - B.length, B, B.length);
         // 逆向双指针
-        // merge3(A, A.length - B.length, B, B.length);
+        merge3(A, A.length - B.length, B, B.length);
 
         System.out.println(Arrays.toString(A));
     }
