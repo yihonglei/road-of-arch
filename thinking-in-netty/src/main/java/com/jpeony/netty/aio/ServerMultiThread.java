@@ -42,8 +42,6 @@ public class ServerMultiThread {
                             exc.printStackTrace();
                         }
                     });
-
-
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

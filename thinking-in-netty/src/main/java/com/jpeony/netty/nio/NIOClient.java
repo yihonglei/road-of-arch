@@ -10,12 +10,14 @@ import java.util.Iterator;
 import java.util.Set;
 
 /**
- * client实例代码
+ * Client 实例代码
  *
  * @author yihonglei
  */
 public class NIOClient {
-    // 通道管理器(Selector)
+    /**
+     * 通道管理器(Selector)
+     */
     private static Selector selector;
 
     public static void main(String[] args) throws IOException {
@@ -64,7 +66,6 @@ public class NIOClient {
                 } else if (key.isReadable()) {// 检查套接字是否已经准备好读数据
                     handleRead(key);
                 }
-
             }
         }
     }

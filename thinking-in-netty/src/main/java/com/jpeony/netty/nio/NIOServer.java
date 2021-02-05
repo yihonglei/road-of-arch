@@ -9,7 +9,7 @@ import java.util.Iterator;
 import java.util.Set;
 
 /**
- * server端实例代码
+ * Server 端实例代码
  *
  * @author yihonglei
  */
@@ -62,10 +62,7 @@ public class NIOServer {
                 } else if (key.isReadable()) {// 检查套接字是否已经准备好读数据
                     handleRead(key);
                 }
-
             }
-
-
         }
     }
 
