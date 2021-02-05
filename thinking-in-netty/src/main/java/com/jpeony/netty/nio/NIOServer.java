@@ -20,9 +20,6 @@ public class NIOServer {
     private static Selector selector;
 
     public static void main(String[] args) throws IOException {
-        // 创建通道管理器(Selector)
-        selector = Selector.open();
-
         // 创建通道ServerSocketChannel
         ServerSocketChannel serverSocketChannel = ServerSocketChannel.open();
         // 将通道设置为非阻塞
@@ -37,6 +34,8 @@ public class NIOServer {
          * 注册该事件后，当事件到达的时候，selector.select()会返回，
          * 如果事件没有到达selector.select()会一直阻塞。
          */
+        // 创建通道管理器(Selector)
+        selector = Selector.open();
         serverSocketChannel.register(selector, SelectionKey.OP_ACCEPT);
 
         // 循环处理

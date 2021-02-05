@@ -21,10 +21,7 @@ public class NIOClient {
     private static Selector selector;
 
     public static void main(String[] args) throws IOException {
-        // 创建通道管理器(Selector)
-        selector = Selector.open();
-
-        // 创建通道SocketChannel
+        // 创建通道 SocketChannel
         SocketChannel channel = SocketChannel.open();
         // 将通道设置为非阻塞
         channel.configureBlocking(false);
@@ -37,6 +34,8 @@ public class NIOClient {
          * 注册该事件后，当事件到达的时候，selector.select()会返回，
          * 如果事件没有到达selector.select()会一直阻塞。
          */
+        // 创建通道管理器(Selector)
+        selector = Selector.open();
         channel.register(selector, SelectionKey.OP_CONNECT);
 
         // 循环处理
