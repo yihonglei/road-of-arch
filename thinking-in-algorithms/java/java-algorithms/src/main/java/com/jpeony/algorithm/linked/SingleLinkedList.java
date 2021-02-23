@@ -14,7 +14,7 @@ public class SingleLinkedList {
     /**
      * 从尾部添加节点
      */
-    void addLast(int value) {
+    public void addLast(int value) {
         // 构建新节点
         Node newNode = new Node(value, null);
 
@@ -35,7 +35,7 @@ public class SingleLinkedList {
     /**
      * 从头部添加节点
      */
-    void addFirst(int value) {
+    public void addFirst(int value) {
         Node newNode = new Node(value, null);
 
         if (head == null) {
@@ -106,7 +106,7 @@ public class SingleLinkedList {
      */
     private static class Node {
         /**
-         * 数据
+         * 元数据
          */
         private int data;
         /**
@@ -120,6 +120,9 @@ public class SingleLinkedList {
         }
     }
 
+    /**
+     * 打印链表
+     */
     public void printAll() {
         Node p = head;
         while (p != null) {

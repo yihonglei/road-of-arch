@@ -107,6 +107,9 @@ public class DoubleLinkedList {
         return true;
     }
 
+    /**
+     * 打印链表
+     */
     public void printAll() {
         Node p = first;
         while (p != null) {
