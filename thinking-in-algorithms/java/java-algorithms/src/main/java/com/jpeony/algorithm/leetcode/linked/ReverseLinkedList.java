@@ -12,9 +12,9 @@ public class ReverseLinkedList {
             return null;
         }
         /*
-         * 创建新的链表，将原链表数据逐个放入新链表中，逻辑最清楚，但是，空间复杂度较高。
-         * 时间复杂度：O(n)。
-         * 空间复杂度：O(n)。
+         * 创建新的链表，将原链表数据逐个放入新链表中，逻辑最清楚，但是，空间复杂度较高
+         * 时间复杂度：O(n)
+         * 空间复杂度：O(n)
          */
         // ListNode rHead = new ListNode(head.val);
         // ListNode pNext = head.next;
@@ -24,9 +24,9 @@ public class ReverseLinkedList {
         //     pNext = pNext.next;
         // }
         /*
-         * 原地反转，时间和空间最优。
-         * 时间复杂度：O(n)。
-         * 空间复杂度：O(1)。
+         * 原地反转，时间和空间最优
+         * 时间复杂度：O(n)
+         * 空间复杂度：O(1)
          */
         ListNode res = null;
         ListNode curr = head;
@@ -49,12 +49,21 @@ public class ReverseLinkedList {
         }
     }
 
+    public static void printAll(ListNode head) {
+        while (head != null) {
+            System.out.print(head.val + " ");
+            head = head.next;
+        }
+    }
+
     public static void main(String[] args) {
         ListNode head = new ListNode(1);
         head.next = new ListNode(2);
         head.next.next = new ListNode(3);
 
-        reverseList(head);
-        System.out.println("end");
+        printAll(head);
+        System.out.println();
+        ListNode newHead = reverseList(head);
+        printAll(newHead);
     }
 }
