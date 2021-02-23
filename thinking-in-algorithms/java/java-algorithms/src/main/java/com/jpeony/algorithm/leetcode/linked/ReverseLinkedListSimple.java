@@ -6,19 +6,23 @@ package com.jpeony.algorithm.leetcode.linked;
  * @author yihonglei
  */
 public class ReverseLinkedListSimple {
+    /**
+     * 时间复杂度：O(n)，根据加法法则，耗时最多在 while 循环了 n 次；
+     * 空间复杂度：O(1)，只需要一个临时存储空间；
+     */
     public static ListNode reverseList(ListNode head) {
         if (head == null) {
             return null;
         }
 
         ListNode res = null;
-        ListNode cur = head;
+        ListNode curr = head;
 
-        while (cur != null) {
-            ListNode nextTmp = cur.next;
-            cur.next = res;
-            res = cur;
-            cur = nextTmp;
+        while (curr != null) {
+            ListNode nextTmp = curr.next;
+            curr.next = res;
+            res = curr;
+            curr = nextTmp;
         }
 
         return res;
