@@ -6,7 +6,7 @@ package com.jpeony.algorithm.leetcode.linked;
  * @author yihonglei
  */
 public class MergeTwoSortedLists {
-    public static ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+    public static ListNode mergeTwoListsOne(ListNode l1, ListNode l2) {
         ListNode prehead = new ListNode(-1);
 
         ListNode prev = prehead;
@@ -27,15 +27,26 @@ public class MergeTwoSortedLists {
         return prehead.next;
     }
 
+    public static ListNode mergeTwoListsTwo(ListNode l1, ListNode l2) {
+        if (l1 == null) {
+            return l2;
+        } else if (l2 == null) {
+            return l1;
+        } else if (l1.val < l2.val) {
+            l1.next = mergeTwoListsTwo(l1.next, l2);
+            return l1;
+        } else {
+            l2.next = mergeTwoListsTwo(l1, l2.next);
+            return l2;
+        }
+    }
+
     /**
      * Definition for singly-linked list.
      */
     public static class ListNode {
         int val;
         ListNode next;
-
-        ListNode() {
-        }
 
         ListNode(int val) {
             this.val = val;
@@ -57,9 +68,10 @@ public class MergeTwoSortedLists {
         l2.next = new ListNode(3, null);
         l2.next.next = new ListNode(4, null);
 
-        ListNode listNode = mergeTwoLists(l1, l2);
+//        ListNode listNode = mergeTwoListsOne(l1, l2);
+        ListNode listNode = mergeTwoListsTwo(l1, l2);
         while (listNode != null) {
-            System.out.println(listNode.val);
+            System.out.print(listNode.val + " ");
             listNode = listNode.next;
         }
     }
