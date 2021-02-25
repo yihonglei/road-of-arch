@@ -68,8 +68,8 @@ public class MergeTwoSortedLists {
         l2.next = new ListNode(3, null);
         l2.next.next = new ListNode(4, null);
 
-//        ListNode listNode = mergeTwoListsOne(l1, l2);
-        ListNode listNode = mergeTwoListsTwo(l1, l2);
+        ListNode listNode = mergeTwoListsOne(l1, l2);
+//        ListNode listNode = mergeTwoListsTwo(l1, l2);
         while (listNode != null) {
             System.out.print(listNode.val + " ");
             listNode = listNode.next;
