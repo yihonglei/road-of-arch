@@ -6,27 +6,44 @@ package com.jpeony.algorithm.leetcode.linked;
  * @author yihonglei
  */
 public class MergeTwoSortedLists {
+    /**
+     * 迭代方式：
+     * 1、定义个头结点，还有一个尾节点；
+     * 2、不断在尾部添加元素；
+     * 3、其中一个尾 null 时，将另外一个不为 null 的添加到队尾，因为两个链表是有序的；
+     */
     public static ListNode mergeTwoListsOne(ListNode l1, ListNode l2) {
-        ListNode prehead = new ListNode(-1);
+        if (l1 == null) {
+            return l2;
+        }
 
-        ListNode prev = prehead;
+        if (l2 == null) {
+            return l1;
+        }
+        // 有头链表（链表的哨兵节点，不参与业务处理的结点）
+        ListNode head = new ListNode();
+        ListNode last = head;
         while (l1 != null && l2 != null) {
             if (l1.val <= l2.val) {
-                prev.next = l1;
+                last.next = l1;
                 l1 = l1.next;
             } else {
-                prev.next = l2;
+                last.next = l2;
                 l2 = l2.next;
             }
-            prev = prev.next;
+
+            last = last.next;
         }
 
         // 合并后 l1 和 l2 最多只有一个还未被合并完，我们直接将链表末尾指向未合并完的链表即可
-        prev.next = l1 == null ? l2 : l1;
+        last.next = l1 == null ? l2 : l1;
 
-        return prehead.next;
+        return head.next;
     }
 
+    /**
+     * 递归
+     */
     public static ListNode mergeTwoListsTwo(ListNode l1, ListNode l2) {
         if (l1 == null) {
             return l2;
@@ -48,6 +65,10 @@ public class MergeTwoSortedLists {
         int val;
         ListNode next;
 
+        ListNode() {
+
+        }
+
         ListNode(int val) {
             this.val = val;
         }
@@ -60,15 +81,17 @@ public class MergeTwoSortedLists {
 
 
     public static void main(String[] args) {
-        ListNode l1 = new ListNode(1, null);
-        l1.next = new ListNode(2, null);
-        l1.next.next = new ListNode(4, null);
+        ListNode l1 = new ListNode(1);
+        l1.next = new ListNode(2);
+        l1.next.next = new ListNode(4);
 
-        ListNode l2 = new ListNode(1, null);
-        l2.next = new ListNode(3, null);
-        l2.next.next = new ListNode(4, null);
+        ListNode l2 = new ListNode(1);
+        l2.next = new ListNode(3);
+        l2.next.next = new ListNode(4);
 
+        // 迭代
         ListNode listNode = mergeTwoListsOne(l1, l2);
+        // 递归
 //        ListNode listNode = mergeTwoListsTwo(l1, l2);
         while (listNode != null) {
             System.out.print(listNode.val + " ");
