@@ -20,14 +20,15 @@ public class ValidParentheses {
         Deque<Character> cStack = new LinkedList<>();
         // 有效括号匹配
         for (char c : cArr) {
-            // 左括号
+            // 左括号入栈
             if (c == '(' || c == '{' || c == '[') {
                 cStack.push(c);
             } else if (c == ')' || c == '}' || c == ']') {
+                // 如果为空，匹配失败
                 if (cStack.isEmpty()) {
                     return false;
                 }
-                // 比较是否成对
+                // 比较是否成对，如果都不符合，匹配失败
                 Character cPop = cStack.pop();
                 if (!((cPop == '(' && c == ')') || (cPop == '{' && c == '}') || (cPop == '[' && c == ']'))) {
                     return false;
