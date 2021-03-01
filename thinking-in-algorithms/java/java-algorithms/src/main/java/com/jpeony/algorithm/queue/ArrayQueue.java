@@ -15,13 +15,22 @@ public class ArrayQueue {
      */
     private int size = 0;
     /**
-     * 队头下标，默认指在数组下标为0的位置
+     * 默认数组容量
+     */
+    private int defaultCapacity = Integer.MAX_VALUE;
+    /**
+     * 队头下标，默认指在数组下标为 0 的位置
      */
     private int head = 0;
     /**
-     * 队尾下标，默认指在数组下标为0的位置
+     * 队尾下标，默认指在数组下标为 0 的位置
      */
     private int tail = 0;
+
+    public ArrayQueue() {
+        elements = new int[defaultCapacity];
+        size = defaultCapacity;
+    }
 
     /**
      * 初始化数组
@@ -35,7 +44,7 @@ public class ArrayQueue {
      * 入队
      */
     public boolean enqueue(int element) {
-        // 如果tail == size，队列已满
+        // 如果 tail == size，队列已满
         if (tail == size) {
             return false;
         }
@@ -43,6 +52,7 @@ public class ArrayQueue {
         elements[tail] = element;
         // 尾部坐标后移
         ++tail;
+        ++size;
         return true;
     }
 
@@ -50,7 +60,7 @@ public class ArrayQueue {
      * 出队
      */
     public int dequeue() {
-        // 如果head == tail，表示队列为空
+        // 如果 head == tail，表示队列为空
         if (head == tail) {
             return -1;
         }
