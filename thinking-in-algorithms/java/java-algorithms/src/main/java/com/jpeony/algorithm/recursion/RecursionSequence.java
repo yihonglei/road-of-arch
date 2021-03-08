@@ -1,7 +1,7 @@
 package com.jpeony.algorithm.recursion;
 
 /**
- * 递归打印 1~100
+ * 递归输出 1~100
  *
  * @author yihonglei
  */
