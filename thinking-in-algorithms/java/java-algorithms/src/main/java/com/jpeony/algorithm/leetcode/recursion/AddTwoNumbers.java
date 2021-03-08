@@ -15,16 +15,22 @@ public class AddTwoNumbers {
             return null;
         }
 
+        // 队列头结点和尾节点
         ListNode head = null, tail = null;
+        // 当前求和构建节点
         ListNode curr = null;
+        // 俩数相加进位值
         int carry = 0;
+        // 全部为空时退出循环
         while (l1 != null || l2 != null) {
             // 求和，为空节点补 0，为了统计求和公式
             int n1 = l1 != null ? l1.val : 0;
             int n2 = l2 != null ? l2.val : 0;
             int sum = n1 + n2 + carry;
 
+            // 构建节点
             curr = new ListNode(sum % 10);
+            // 计算进位值
             carry = sum / 10;
 
             // 入队
