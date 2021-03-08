@@ -73,6 +73,9 @@ public class AddTwoNumbers {
         }
     }
 
+    /**
+     * print all list node
+     */
     public static void printAll(ListNode head) {
         if (head == null) {
             return;
