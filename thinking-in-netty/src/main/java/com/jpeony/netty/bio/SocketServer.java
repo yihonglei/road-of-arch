@@ -22,15 +22,15 @@ public class SocketServer {
             Socket socket = serverSocket.accept();
             System.out.println("有客户端连接了......");
             // 数据处理
-            handler(socket);
+//            handler(socket);
             // 可以使用多线程处理，缺陷就是并发量高时会创建大量线程，系统线程开启数量有限，系统资源不够崩掉
-//            new Thread(() -> {
-//                try {
-//                    handler(socket);
-//                } catch (IOException e) {
-//                    e.printStackTrace();
-//                }
-//            }).start();
+            new Thread(() -> {
+                try {
+                    handler(socket);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }).start();
         }
     }
 
