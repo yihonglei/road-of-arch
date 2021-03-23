@@ -24,6 +24,8 @@
         <junit.version>4.11</junit.version>
         <fastjson.version>1.2.39</fastjson.version>
         <druid.version>1.0.27</druid.version>
+        <zookeeper.version>3.4.8</zookeeper.version>
+        <curator.version>4.0.0</curator.version>
     </properties>
 
     <dependencies>
@@ -49,6 +51,25 @@
             <artifactId>fastjson</artifactId>
             <version>${fastjson.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.apache.zookeeper</groupId>
+            <artifactId>zookeeper</artifactId>
+            <version>${zookeeper.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.curator</groupId>
+            <artifactId>curator-framework</artifactId>
+            <version>${curator.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.curator</groupId>
+            <artifactId>curator-recipes</artifactId>
+            <version>${curator.version}</version>
+        </dependency>
+
     </dependencies>
 
     <!-- 引入一个spring boot插件，可以支持我们将web应用程序打成可运行jar包 -->
