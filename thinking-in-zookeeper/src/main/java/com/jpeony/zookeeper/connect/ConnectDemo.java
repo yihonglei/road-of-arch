@@ -25,7 +25,7 @@ public class ConnectDemo {
                     }
                 }
             });
-            
+
             countDownLatch.await();
             // CONNECTED
             System.out.println(zooKeeper.getState());

@@ -1,4 +1,4 @@
-package com.jpeony.zookeeper.watch;
+package com.jpeony.zookeeper.watcher;
 
 /**
  * @author yihonglei
