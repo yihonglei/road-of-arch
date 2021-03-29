@@ -9,19 +9,11 @@
         <groupId>com.jpeony</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
+
     <artifactId>dubbo-consumer-annotation</artifactId>
-    <version>1.0-SNAPSHOT</version>
     <name>dubbo-consumer-annotation</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
-
-    <dependencies>
-    </dependencies>
-
-    <build>
-    </build>
 </project>
