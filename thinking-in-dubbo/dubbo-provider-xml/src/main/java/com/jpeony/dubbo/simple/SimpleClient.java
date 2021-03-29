@@ -10,6 +10,9 @@ import com.jpeony.dubbo.service.ProviderService;
  */
 public class SimpleClient {
 
+    /**
+     * 无注册中心
+     */
     public ProviderService buildRemoteServiceOrigin(String remoteUrl) {
         ReferenceConfig<ProviderService> referenceConfig = new ReferenceConfig<>();
         referenceConfig.setInterface(ProviderService.class);
@@ -19,6 +22,9 @@ public class SimpleClient {
         return referenceConfig.get();
     }
 
+    /**
+     * 有注册中心，默认负载方式为随机调用
+     */
     public ProviderService buildRemoteServiceRegistry() {
         ReferenceConfig<ProviderService> referenceConfig = new ReferenceConfig<>();
         referenceConfig.setInterface(ProviderService.class);
