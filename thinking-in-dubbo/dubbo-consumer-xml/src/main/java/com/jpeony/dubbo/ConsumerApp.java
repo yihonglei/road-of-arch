@@ -7,7 +7,9 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import java.io.IOException;
 
 /**
- * xml的方式调用
+ * xml 的方式调用
+ *
+ * @author yihonglei
  */
 public class ConsumerApp {
     public static void main(String[] args) throws IOException {

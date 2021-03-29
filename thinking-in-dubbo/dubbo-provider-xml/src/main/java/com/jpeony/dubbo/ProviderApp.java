@@ -14,6 +14,7 @@ public class ProviderApp {
         // 加载 xml 配置文件启动
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("META-INF/spring/provider.xml");
         context.start();
-        System.in.read(); // 按任意键退出
+        // 按任意键退出
+        System.in.read();
     }
 }
