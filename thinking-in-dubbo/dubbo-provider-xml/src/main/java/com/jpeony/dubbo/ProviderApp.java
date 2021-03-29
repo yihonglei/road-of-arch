@@ -12,8 +12,11 @@ import java.io.IOException;
 public class ProviderApp {
     public static void main(String[] args) throws IOException {
         // 加载 xml 配置文件启动
-        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("META-INF/spring/provider.xml");
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("provider.xml");
         context.start();
+        
+        System.out.println("服务已启动");
+
         // 按任意键退出
         System.in.read();
     }

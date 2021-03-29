@@ -7,6 +7,8 @@ import com.alibaba.dubbo.config.ServiceConfig;
 import com.jpeony.dubbo.service.ProviderService;
 import com.jpeony.dubbo.service.impl.ProviderServiceImpl;
 
+import java.io.IOException;
+
 /**
  * @author yihonglei
  */
@@ -27,14 +29,11 @@ public class SimpleServer {
         System.out.println("服务已开启：" + port);
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         // port 如果传 -1，自动从 20880 开始递增，生成多个服务进程，实现集群效果，客服端可以通过 负载均衡自动调用
         new SimpleServer().openService(20880);
 
-        try {
-            Thread.sleep(100000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        // 按任意键退出
+        System.in.read();
     }
 }

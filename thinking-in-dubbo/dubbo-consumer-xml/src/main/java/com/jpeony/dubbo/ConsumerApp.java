@@ -14,10 +14,14 @@ import java.io.IOException;
 public class ConsumerApp {
     public static void main(String[] args) throws IOException {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("consumer.xml");
+
         context.start();
+
         ProviderService providerService = (ProviderService) context.getBean("providerService");
-        String str = providerService.sayHello("hello");
-        System.out.println(str);
+
+        System.out.println(providerService.sayHello("hello"));
+
+        // 按任意键退出
         System.in.read();
     }
 }
