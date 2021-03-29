@@ -15,6 +15,7 @@ public class SimpleServer {
         // 服务配置
         ServiceConfig serviceConfig = new ServiceConfig();
         serviceConfig.setProtocol(new ProtocolConfig("dubbo", port));
+        // serviceConfig.setRegistry(new RegistryConfig(RegistryConfig.NO_AVAILABLE)); // 可以不配置注册中心
         serviceConfig.setRegistry(new RegistryConfig("zookeeper://127.0.0.1:2181"));
         serviceConfig.setApplication(new ApplicationConfig("server-app"));
         serviceConfig.setInterface(ProviderService.class);
