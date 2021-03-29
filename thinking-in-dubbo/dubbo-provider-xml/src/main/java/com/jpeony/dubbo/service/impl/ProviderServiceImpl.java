@@ -8,7 +8,6 @@ import com.jpeony.dubbo.service.ProviderService;
  * @author yihonglei
  */
 public class ProviderServiceImpl implements ProviderService {
-
     @Override
     public String sayHello(String word) {
         return word;

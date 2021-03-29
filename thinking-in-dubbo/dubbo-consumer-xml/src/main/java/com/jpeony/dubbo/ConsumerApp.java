@@ -13,7 +13,6 @@ import java.io.IOException;
  */
 public class ConsumerApp {
     public static void main(String[] args) throws IOException {
-
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("consumer.xml");
         context.start();
         ProviderService providerService = (ProviderService) context.getBean("providerService");
