@@ -18,6 +18,10 @@
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+        </dependency>
         <!-- SpringBoot集成Redis -->
         <dependency>
             <groupId>org.springframework.boot</groupId>

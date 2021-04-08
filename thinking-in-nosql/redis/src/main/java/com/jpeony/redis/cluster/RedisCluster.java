@@ -45,6 +45,8 @@ public class RedisCluster {
         JedisCluster jedisCluster = new JedisCluster(jedisClusterNode,
                 6000, 5000, 10, "qBa39fA&?@-o", config);
 
+        jedisCluster.set("dispatcher_test:didi_driver_order_10105721", "hello");
+
         System.out.println(jedisCluster.get("dispatcher_test:didi_driver_order_10105721"));
 
         jedisCluster.close();
