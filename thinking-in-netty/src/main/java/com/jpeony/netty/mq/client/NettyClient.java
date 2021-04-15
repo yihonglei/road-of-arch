@@ -1,15 +1,15 @@
-package com.jpeony.netty.auto.client;
+package com.jpeony.netty.mq.client;
 
-import com.jpeony.netty.auto.common.MessageData;
-import com.jpeony.netty.auto.common.RemotingHelper;
+import com.jpeony.netty.mq.common.MessageData;
+import com.jpeony.netty.mq.common.RemotingHelper;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelFuture;
+import io.netty.channel.ChannelOption;
 import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioSocketChannel;
 
-import java.net.InetSocketAddress;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.TimeUnit;
@@ -22,13 +22,13 @@ import java.util.concurrent.locks.ReentrantLock;
  */
 public class NettyClient {
     private final Bootstrap bootstrap;
-    private final EventLoopGroup eventLoopGroupWorker;
+    private final EventLoopGroup workerGroup;
     private final ConcurrentHashMap<String, ChannelWrapper> channelTables = new ConcurrentHashMap<>();
     private final Lock lockChannelTables = new ReentrantLock();
 
     public NettyClient() {
         bootstrap = new Bootstrap();
-        this.eventLoopGroupWorker = new NioEventLoopGroup(1, new ThreadFactory() {
+        this.workerGroup = new NioEventLoopGroup(1, new ThreadFactory() {
             private AtomicInteger threadIndex = new AtomicInteger(0);
 
             @Override
@@ -39,8 +39,10 @@ public class NettyClient {
     }
 
     public void start() {
-        this.bootstrap.group(eventLoopGroupWorker)
+        this.bootstrap.group(workerGroup)
                 .channel(NioSocketChannel.class)
+                .option(ChannelOption.SO_KEEPALIVE, true)
+                .option(ChannelOption.TCP_NODELAY, true)
                 .handler(new NettyClientChannelInitializer());
     }
 
@@ -89,7 +91,7 @@ public class NettyClient {
                     this.channelTables.put(clientId, cw);
                 }
             } catch (Exception e) {
-
+                e.printStackTrace();
             } finally {
                 this.lockChannelTables.unlock();
             }

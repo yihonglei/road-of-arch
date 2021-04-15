@@ -1,6 +1,6 @@
 package com.jpeony.netty.controller;
 
-import com.jpeony.netty.auto.common.ChannelCache;
+import com.jpeony.netty.mq.common.ChannelCache;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.Channel;
 import io.netty.util.CharsetUtil;

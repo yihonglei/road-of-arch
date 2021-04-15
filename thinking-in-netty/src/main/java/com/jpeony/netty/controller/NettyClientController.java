@@ -1,7 +1,7 @@
 package com.jpeony.netty.controller;
 
-import com.jpeony.netty.auto.client.NettyClientManager;
-import com.jpeony.netty.auto.common.MessageData;
+import com.jpeony.netty.mq.client.NettyClientManager;
+import com.jpeony.netty.mq.common.MessageData;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

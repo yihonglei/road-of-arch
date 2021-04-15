@@ -122,14 +122,14 @@ public class EventServiceImpl implements EventService {
                 long t1 = System.currentTimeMillis();
                 getInstance().putObject(this.bucketName, fileName, inputStream, new PutObjectOptions(inputStream.available(), -1L));
                 long t2 = System.currentTimeMillis();
-                System.err.println("只上传了文件"+ fileName + "  用时" + ((t2 - t1) / 1000L) + "s");
+                System.err.println("只上传了文件" + fileName + "  用时" + ((t2 - t1) / 1000L) + "s");
                 List<BagEvent> list = fileMap.get(path);
                 if (list != null && list.size() > 0) {
                     for (BagEvent s : list) {
 //                    s.getFiles().stream().forEach(());
                     }
                     insertMongo(list);
-                    System.err.println("创建了事件"+ ((List)list.stream().map(s -> s.getTimeStr()).collect(Collectors.toList())).toString());
+                    System.err.println("创建了事件" + ((List) list.stream().map(s -> s.getTimeStr()).collect(Collectors.toList())).toString());
                 }
             } catch (Exception e) {
                 logger.error(e.getMessage());
@@ -158,8 +158,9 @@ public class EventServiceImpl implements EventService {
                 while (null != (strLine = bufferedReader.readLine())) {
                     String[] strs = strLine.replaceAll("eventrecord/", "").split("\t");
                     String compareTime = getDate();
-                    if (strs[0].compareTo(compareTime) > 0)
+                    if (strs[0].compareTo(compareTime) > 0) {
                         break;
+                    }
                     BagEvent bagEvent = new BagEvent();
                     bagEvent.setClientId(CLIENTID);
                     bagEvent.setTimeStr(strs[0]);
@@ -275,7 +276,7 @@ public class EventServiceImpl implements EventService {
             Integer nameFlag = Integer.valueOf(Integer.parseInt(name.substring(name.indexOf("_") + 1, name.indexOf("."))));
             Integer nameFlag1 = Integer.valueOf(Integer.parseInt(name1.substring(name1.indexOf("_") + 1, name1.indexOf("."))));
             if (time.compareTo(name.substring(0, name.indexOf("_"))) > 0 && name1.substring(0, name1.indexOf("_")).compareTo(time) > 0) {
-                System.out.println("合适的文件："+ name);
+                System.out.println("合适的文件：" + name);
                 if (i == 0) {
                     if (nameFlag.intValue() >= nameFlag1.intValue()) {
                         List<BagEvent> list3 = new ArrayList<>();

@@ -1,26 +1,36 @@
-package com.jpeony.netty.auto.server;
+package com.jpeony.netty.mq.server;
 
-import com.jpeony.netty.auto.common.ChannelCache;
+import com.jpeony.netty.mq.common.ChannelCache;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.util.CharsetUtil;
+import org.springframework.stereotype.Component;
 
 /**
  * @author yihonglei
  */
+@Component
 public class NettyServerHandler extends SimpleChannelInboundHandler {
+    @Override
+    public void channelInactive(ChannelHandlerContext ctx) throws Exception {
+        System.out.println("客户端掉线......");
+    }
 
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, Object msg) throws Exception {
         ByteBuf in = (ByteBuf) msg;
         System.out.println("server received msg from client：" + in.toString(CharsetUtil.UTF_8));
-        String responseData = "Hello Client!";
-        ctx.writeAndFlush(Unpooled.copiedBuffer(responseData, CharsetUtil.UTF_8));
+        String message = in.toString(CharsetUtil.UTF_8);
 
-        ChannelCache.put("101", ctx.channel());
+        /* 心跳数据是不发送数据 */
+        if (!message.contains("heartbeat")) {
+            String responseData = "Hello Client!";
+            ctx.writeAndFlush(Unpooled.copiedBuffer(responseData, CharsetUtil.UTF_8));
+            ChannelCache.put("101", ctx.channel());
+        }
     }
 
     /**
@@ -29,7 +39,8 @@ public class NettyServerHandler extends SimpleChannelInboundHandler {
     @Override
     public void channelReadComplete(ChannelHandlerContext ctx) {
         // 将未决消息冲刷到远程节点，并且关闭该Channel
-        ctx.writeAndFlush(Unpooled.EMPTY_BUFFER).addListener(ChannelFutureListener.CLOSE);
+//        ctx.writeAndFlush(Unpooled.EMPTY_BUFFER).addListener(ChannelFutureListener.CLOSE);
+        ctx.writeAndFlush(Unpooled.EMPTY_BUFFER);
     }
 
     /**

@@ -1,14 +1,16 @@
-package com.jpeony.netty.auto.client;
+package com.jpeony.netty.mq.client;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.util.CharsetUtil;
+import org.springframework.stereotype.Component;
 
 /**
  * @author yihonglei
  */
+@Component
 public class NettyClientHandler extends SimpleChannelInboundHandler<ByteBuf> {
     @Override
     public void channelActive(ChannelHandlerContext ctx) {

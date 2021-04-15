@@ -1,7 +1,7 @@
-package com.jpeony.netty.auto.server;
+package com.jpeony.netty.mq.server;
 
 import io.netty.bootstrap.ServerBootstrap;
-import io.netty.channel.ChannelFuture;
+import io.netty.channel.ChannelOption;
 import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
@@ -46,6 +46,9 @@ public class NettyServer {
     public void start() {
         serverBootstrap.group(bossGroup, workerGroup)
                 .channel(NioServerSocketChannel.class)
+                .option(ChannelOption.SO_BACKLOG, 1024)
+                .option(ChannelOption.TCP_NODELAY, true)
+                .childOption(ChannelOption.SO_KEEPALIVE, true)
                 .localAddress(new InetSocketAddress(host, port))
                 .childHandler(new NettyServerChannelInitializer());
 

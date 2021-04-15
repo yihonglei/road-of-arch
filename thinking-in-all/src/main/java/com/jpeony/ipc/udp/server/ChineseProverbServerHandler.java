@@ -82,6 +82,6 @@ public class ChineseProverbServerHandler extends SimpleChannelInboundHandler<Dat
 
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
-        this.logger.info("ChineseProverbServerHandler channelActive 进入...........");
+        this.logger.info("ChineseProverbServerHandler channelActive进入...........");
     }
 }

@@ -1,4 +1,4 @@
-package com.jpeony.netty.auto.common;
+package com.jpeony.netty.mq.common;
 
 import io.netty.channel.Channel;
 

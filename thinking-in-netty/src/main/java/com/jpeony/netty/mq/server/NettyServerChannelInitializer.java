@@ -1,4 +1,4 @@
-package com.jpeony.netty.auto.server;
+package com.jpeony.netty.mq.server;
 
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelPipeline;

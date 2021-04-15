@@ -1,6 +1,6 @@
-package com.jpeony.netty.auto.client;
+package com.jpeony.netty.mq.client;
 
-import com.jpeony.netty.auto.common.MessageData;
+import com.jpeony.netty.mq.common.MessageData;
 
 /**
  * @author yihonglei
