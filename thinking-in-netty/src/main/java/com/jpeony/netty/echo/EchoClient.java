@@ -66,5 +66,7 @@ public class EchoClient {
 
     public static void main(String[] args) throws InterruptedException {
         new EchoClient("127.0.0.1", 9999).start();
+
+        Thread.sleep(100000);
     }
 }

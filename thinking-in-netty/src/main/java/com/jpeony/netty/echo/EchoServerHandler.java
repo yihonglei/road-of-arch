@@ -27,11 +27,11 @@ public class EchoServerHandler extends SimpleChannelInboundHandler {
 //        ByteBuf responseMsg = Unpooled.wrappedBuffer(new String("Hello Client!").getBytes());
 //        ctx.write(responseMsg);
 //    }
-
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, Object msg) throws Exception {
         ByteBuf in = (ByteBuf) msg;
         System.out.println("server received msg from client：" + in.toString(CharsetUtil.UTF_8));
+        ctx.writeAndFlush("from server msg");
     }
 
     /**

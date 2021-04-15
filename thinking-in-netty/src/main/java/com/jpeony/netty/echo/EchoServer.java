@@ -70,7 +70,7 @@ public class EchoServer {
             ChannelFuture f = b.bind().sync();
 
             // 绑定Channel的CloseFuture，并且阻塞当前线程直到它完成
-//            f.channel().closeFuture().sync();
+            f.channel().closeFuture().sync();
         } finally {
             // 关闭EventLoopGroup并且释放所有的资源
             bossGroup.shutdownGracefully();
