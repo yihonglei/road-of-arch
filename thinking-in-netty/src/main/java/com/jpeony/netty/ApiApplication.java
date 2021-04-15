@@ -25,7 +25,6 @@ public class ApiApplication implements CommandLineRunner {
         server.start();
         System.out.println("netty server start success!");
 
-
         // netty client start
         System.out.println("netty client start ......");
         NettyClientManager clientManager = NettyClientManager.getInstance();

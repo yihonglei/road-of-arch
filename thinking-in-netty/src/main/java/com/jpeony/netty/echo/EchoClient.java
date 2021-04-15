@@ -53,7 +53,7 @@ public class EchoClient {
                         }
                     });
 
-            // 连接到远程节点，阻塞等待知道连接完成
+            // 连接到远程节点，阻塞等待直到连接完成
             ChannelFuture f = b.connect().sync();
 
             // 阻塞，直到Channel关闭

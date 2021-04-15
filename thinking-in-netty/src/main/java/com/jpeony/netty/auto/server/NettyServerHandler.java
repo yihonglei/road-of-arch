@@ -1,5 +1,6 @@
 package com.jpeony.netty.auto.server;
 
+import com.jpeony.netty.auto.common.ChannelCache;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelFutureListener;
@@ -18,6 +19,8 @@ public class NettyServerHandler extends SimpleChannelInboundHandler {
         System.out.println("server received msg from client：" + in.toString(CharsetUtil.UTF_8));
         String responseData = "Hello Client!";
         ctx.writeAndFlush(Unpooled.copiedBuffer(responseData, CharsetUtil.UTF_8));
+
+        ChannelCache.put("101", ctx.channel());
     }
 
     /**
