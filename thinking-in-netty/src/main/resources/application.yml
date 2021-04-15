@@ -1,0 +1,7 @@
+# profiles
+spring:
+  profiles:
+    active: dev
+# port
+server:
+  port: 8765
