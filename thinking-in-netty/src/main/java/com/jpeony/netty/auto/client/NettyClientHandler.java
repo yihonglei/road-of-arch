@@ -20,7 +20,7 @@ public class NettyClientHandler extends SimpleChannelInboundHandler<ByteBuf> {
 
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, ByteBuf in) {
-        System.out.println("client received msg from client：" + in.toString(CharsetUtil.UTF_8));
+        System.out.println("client received msg from server：" + in.toString(CharsetUtil.UTF_8));
         ctx.writeAndFlush(Unpooled.copiedBuffer("Hello Client!", CharsetUtil.UTF_8));
     }
 

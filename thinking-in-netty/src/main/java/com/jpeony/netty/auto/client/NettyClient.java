@@ -1,48 +1,133 @@
 package com.jpeony.netty.auto.client;
 
+import com.jpeony.netty.auto.common.MessageData;
+import com.jpeony.netty.auto.common.RemotingHelper;
 import io.netty.bootstrap.Bootstrap;
+import io.netty.channel.Channel;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioSocketChannel;
 
 import java.net.InetSocketAddress;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * @author yihonglei
  */
 public class NettyClient {
-    private final String host;
-    private final int port;
+    private final Bootstrap bootstrap;
+    private final EventLoopGroup eventLoopGroupWorker;
+    private final ConcurrentHashMap<String, ChannelWrapper> channelTables = new ConcurrentHashMap<>();
+    private final Lock lockChannelTables = new ReentrantLock();
 
-    public NettyClient(String host, int port) {
-        this.host = host;
-        this.port = port;
+    public NettyClient() {
+        bootstrap = new Bootstrap();
+        this.eventLoopGroupWorker = new NioEventLoopGroup(1, new ThreadFactory() {
+            private AtomicInteger threadIndex = new AtomicInteger(0);
+
+            @Override
+            public Thread newThread(Runnable r) {
+                return new Thread(r, String.format("NettyClientSelector_%d", this.threadIndex.incrementAndGet()));
+            }
+        });
     }
 
-    private void start() throws InterruptedException {
-        EventLoopGroup group = new NioEventLoopGroup();
+    public void start() {
+        this.bootstrap.group(eventLoopGroupWorker)
+                .channel(NioSocketChannel.class)
+                .handler(new NettyClientChannelInitializer());
+    }
 
-        try {
-            Bootstrap b = new Bootstrap();
-
-            b.group(group)
-                    .channel(NioSocketChannel.class)
-                    .remoteAddress(new InetSocketAddress(host, port))
-                    .handler(new NettyClientChannelInitializer());
-
-            ChannelFuture f = b.connect().sync();
-
-            f.channel().closeFuture().sync();
-        } finally {
-            group.shutdownGracefully().sync();
+    public void invokeOneWay(final MessageData messageData) throws InterruptedException {
+        final Channel channel = this.getAndCreateChannel(messageData.getClientId());
+        if (channel != null && channel.isActive()) {
+            channel.writeAndFlush(messageData);
         }
     }
 
-    public static void main(String[] args) throws InterruptedException {
-        NettyClient client = new NettyClient("127.0.0.1", 8765);
-        client.start();
+    private Channel getAndCreateChannel(String clientId) throws InterruptedException {
+        ChannelWrapper cw = this.channelTables.get(clientId);
+        if (cw != null && cw.isOK()) {
+            return cw.getChannel();
+        }
 
-        Thread.sleep(100000);
+        return this.createChannel(clientId);
+    }
+
+    private Channel createChannel(String clientId) throws InterruptedException {
+        ChannelWrapper cw = this.channelTables.get(clientId);
+        if (cw != null && cw.isOK()) {
+            return cw.getChannel();
+        }
+
+        if (this.lockChannelTables.tryLock(3000, TimeUnit.MILLISECONDS)) {
+            try {
+                boolean createNewConnection;
+                cw = this.channelTables.get(clientId);
+                if (cw != null) {
+                    if (cw.isOK()) {
+                        return cw.getChannel();
+                    } else if (!cw.getChannelFuture().isDone()) {
+                        createNewConnection = false;
+                    } else {
+                        this.channelTables.remove(clientId);
+                        createNewConnection = true;
+                    }
+                } else {
+                    createNewConnection = true;
+                }
+
+                if (createNewConnection) {
+                    ChannelFuture channelFuture = this.bootstrap.connect(RemotingHelper.string2SocketAddress("127.0.0.1:8888"));
+                    cw = new ChannelWrapper(channelFuture);
+                    this.channelTables.put(clientId, cw);
+                }
+            } catch (Exception e) {
+
+            } finally {
+                this.lockChannelTables.unlock();
+            }
+        }
+
+        if (cw != null) {
+            ChannelFuture channelFuture = cw.getChannelFuture();
+            if (channelFuture.awaitUninterruptibly(3000)) {
+                if (cw.isOK()) {
+                    return cw.getChannel();
+                }
+            }
+        }
+
+        return null;
+    }
+
+    static class ChannelWrapper {
+        private final ChannelFuture channelFuture;
+
+        public ChannelWrapper(ChannelFuture channelFuture) {
+            this.channelFuture = channelFuture;
+        }
+
+        public boolean isOK() {
+            return this.channelFuture.channel() != null && this.channelFuture.channel().isActive();
+        }
+
+        public boolean isWritable() {
+            return this.channelFuture.channel().isWritable();
+        }
+
+        private Channel getChannel() {
+            return this.channelFuture.channel();
+        }
+
+        public ChannelFuture getChannelFuture() {
+            return channelFuture;
+        }
     }
 }

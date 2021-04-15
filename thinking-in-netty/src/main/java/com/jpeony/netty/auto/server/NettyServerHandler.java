@@ -16,6 +16,8 @@ public class NettyServerHandler extends SimpleChannelInboundHandler {
     protected void channelRead0(ChannelHandlerContext ctx, Object msg) throws Exception {
         ByteBuf in = (ByteBuf) msg;
         System.out.println("server received msg from client：" + in.toString(CharsetUtil.UTF_8));
+        String responseData = "Hello Client!";
+        ctx.writeAndFlush(Unpooled.copiedBuffer(responseData, CharsetUtil.UTF_8));
     }
 
     /**
