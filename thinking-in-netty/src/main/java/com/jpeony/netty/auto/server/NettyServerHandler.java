@@ -11,6 +11,7 @@ import io.netty.util.CharsetUtil;
  * @author yihonglei
  */
 public class NettyServerHandler extends SimpleChannelInboundHandler {
+
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, Object msg) throws Exception {
         ByteBuf in = (ByteBuf) msg;
