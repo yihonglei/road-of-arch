@@ -15,12 +15,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(value = "/netty/server")
 public class NettyServerController {
     @GetMapping
-    @RequestMapping(value = "/serverMsg")
-    public String serverMsg() {
+    @RequestMapping(value = "/sendMsg")
+    public String sendMsg() {
         Channel channel = ChannelCache.get("101");
 
         String responseData = "server send msg to client, Hello Client!";
         channel.writeAndFlush(Unpooled.copiedBuffer(responseData, CharsetUtil.UTF_8));
-        return "server send msg to client";
+        return "server send msg to client success!";
     }
 }

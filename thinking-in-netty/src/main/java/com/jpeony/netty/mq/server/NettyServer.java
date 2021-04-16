@@ -14,22 +14,18 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @author yihonglei
  */
 public class NettyServer {
-    private final String host;
-    private final int port;
     private final ServerBootstrap serverBootstrap;
     private final EventLoopGroup bossGroup;
     private final EventLoopGroup workerGroup;
 
-    public NettyServer(String host, int port) {
-        this.host = host;
-        this.port = port;
+    public NettyServer() {
         this.serverBootstrap = new ServerBootstrap();
         bossGroup = new NioEventLoopGroup(1, new ThreadFactory() {
             private AtomicInteger threadIndex = new AtomicInteger(0);
 
             @Override
             public Thread newThread(Runnable r) {
-                return new Thread(r, String.format("NettyNIOBoss_%d", this.threadIndex.incrementAndGet()));
+                return new Thread(r, String.format("NettyServerNIOBoss_%d", this.threadIndex.incrementAndGet()));
             }
         });
         workerGroup = new NioEventLoopGroup(2, new ThreadFactory() {
@@ -49,7 +45,7 @@ public class NettyServer {
                 .option(ChannelOption.SO_BACKLOG, 1024)
                 .option(ChannelOption.TCP_NODELAY, true)
                 .childOption(ChannelOption.SO_KEEPALIVE, true)
-                .localAddress(new InetSocketAddress(host, port))
+                .localAddress(new InetSocketAddress("127.0.0.1", 8888))
                 .childHandler(new NettyServerChannelInitializer());
 
         try {

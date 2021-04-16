@@ -40,6 +40,7 @@ public class HeartbeatHandler extends ChannelInboundHandlerAdapter {
     @Override
     public void channelInactive(ChannelHandlerContext ctx) throws Exception {
         System.out.println("检测到心跳服务器断开！！！！准备新建连接。");
+        // TODO 断线重连
     }
 
     private ByteBuf getByteBuf(ChannelHandlerContext ctx) {

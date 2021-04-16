@@ -1,6 +1,7 @@
 package com.jpeony.netty;
 
 import com.jpeony.netty.mq.client.NettyClientManager;
+import com.jpeony.netty.mq.common.NettyServerManager;
 import com.jpeony.netty.mq.server.NettyServer;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -19,15 +20,15 @@ public class ApiApplication implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         // netty server start
-        System.out.println("netty server start ......");
-        NettyServer server = new NettyServer("127.0.0.1", 8888);
-        server.start();
-        System.out.println("netty server start success!");
+        System.out.println("Netty server start ......");
+        NettyServerManager serverManager = NettyServerManager.getInstance();
+        serverManager.start();
+        System.out.println("Netty server start success!");
 
         // netty client start
-        System.out.println("netty client start ......");
+        System.out.println("Netty client start ......");
         NettyClientManager clientManager = NettyClientManager.getInstance();
         clientManager.start();
-        System.out.println("netty client success!");
+        System.out.println("Netty client success!");
     }
 }
