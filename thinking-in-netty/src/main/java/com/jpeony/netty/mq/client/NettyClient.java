@@ -1,7 +1,6 @@
 package com.jpeony.netty.mq.client;
 
 import com.jpeony.netty.mq.common.Message;
-import com.jpeony.netty.mq.common.RemotingHelper;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelFuture;
