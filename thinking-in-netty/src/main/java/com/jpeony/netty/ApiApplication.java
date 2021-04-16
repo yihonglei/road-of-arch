@@ -2,7 +2,6 @@ package com.jpeony.netty;
 
 import com.jpeony.netty.mq.client.NettyClientManager;
 import com.jpeony.netty.mq.common.NettyServerManager;
-import com.jpeony.netty.mq.server.NettyServer;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
