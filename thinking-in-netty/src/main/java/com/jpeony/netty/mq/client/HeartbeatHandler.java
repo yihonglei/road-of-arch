@@ -13,7 +13,9 @@ import java.time.LocalTime;
  * @author yihonglei
  */
 public class HeartbeatHandler extends SimpleChannelInboundHandler<Message> {
+
     public static final String CLIENT_ID = System.getProperty("spring.netty.clientId", "101");
+
     private int unRecPongTimes = 0;
 
     @Override
@@ -41,7 +43,7 @@ public class HeartbeatHandler extends SimpleChannelInboundHandler<Message> {
     }
 
     private void sendPingMsg(ChannelHandlerContext ctx) {
-        System.out.println("【客户端】10 秒了，需要发送消息给服务端了" + LocalTime.now());
+        System.out.println("【客户端】10 秒了，需要发送消息给服务端保持心跳" + LocalTime.now());
         Message pingDataMsg = new Message();
         pingDataMsg.setClientId(CLIENT_ID);
         pingDataMsg.setCmd(Command.PING);
@@ -51,7 +53,7 @@ public class HeartbeatHandler extends SimpleChannelInboundHandler<Message> {
 
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, Message msg) throws Exception {
-        System.out.println("【客户端】收到从服务端发来的消息：" + msg);
+        System.out.println("【客户端】收到从服务端发来的消息" + msg);
 
         switch (msg.getCmd()) {
             case Command.PONG:
@@ -78,7 +80,14 @@ public class HeartbeatHandler extends SimpleChannelInboundHandler<Message> {
 
     @Override
     public void channelInactive(ChannelHandlerContext ctx) throws Exception {
-        System.out.println("检测到心跳服务器断开！！！！准备新建连接。");
-        // TODO 断线重连
+        System.out.println("检测到心跳服务器断开！！！！准备新建连接");
+        // 断线重连
+        NettyClientManager producer = NettyClientManager.getInstance();
+
+        Message message = new Message();
+        message.setClientId(CLIENT_ID);
+        message.setCmd(Command.RE_CONNECT);
+        message.setData("【客户端】客户端断线重新连接服务端");
+        producer.send(message);
     }
 }

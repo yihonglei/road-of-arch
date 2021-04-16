@@ -26,6 +26,9 @@ public class NettyClient {
     private final ConcurrentHashMap<String, ChannelWrapper> channelTables = new ConcurrentHashMap<>();
     private final Lock lockChannelTables = new ReentrantLock();
 
+    public static String HOST = System.getProperty("remote.host", "127.0.0.1");
+    public static int PORT = Integer.parseInt(System.getProperty("remote.port", "8888"));
+
     public NettyClient() {
         bootstrap = new Bootstrap();
         this.workerGroup = new NioEventLoopGroup(1, new ThreadFactory() {
@@ -86,7 +89,7 @@ public class NettyClient {
                 }
 
                 if (createNewConnection) {
-                    ChannelFuture channelFuture = this.bootstrap.connect(RemotingHelper.string2SocketAddress("127.0.0.1:8888"));
+                    ChannelFuture channelFuture = this.bootstrap.connect(HOST, PORT);
                     cw = new ChannelWrapper(channelFuture);
                     this.channelTables.put(clientId, cw);
                 }

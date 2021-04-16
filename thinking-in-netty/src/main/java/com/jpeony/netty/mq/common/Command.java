@@ -8,7 +8,7 @@ public class Command {
      * 验证
      */
     public static final int AUTH = 1;
-    
+
     /**
      * ping
      */
@@ -59,4 +59,9 @@ public class Command {
     public static final int UNLOCK = 33;
 
     public static final int OPEN_DOOR = 34;
+
+    /**
+     * 断线重连
+     */
+    public static final int RE_CONNECT = 100;
 }
