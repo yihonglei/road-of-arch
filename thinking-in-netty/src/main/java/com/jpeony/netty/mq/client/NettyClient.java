@@ -1,6 +1,6 @@
 package com.jpeony.netty.mq.client;
 
-import com.jpeony.netty.mq.common.MessageData;
+import com.jpeony.netty.mq.common.Message;
 import com.jpeony.netty.mq.common.RemotingHelper;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.Channel;
@@ -46,10 +46,10 @@ public class NettyClient {
                 .handler(new NettyClientChannelInitializer());
     }
 
-    public void invokeOneWay(final MessageData messageData) throws InterruptedException {
-        final Channel channel = this.getAndCreateChannel(messageData.getClientId());
+    public void invokeOneWay(final Message message) throws InterruptedException {
+        final Channel channel = this.getAndCreateChannel(message.getClientId());
         if (channel != null && channel.isActive()) {
-            channel.writeAndFlush(messageData);
+            channel.writeAndFlush(message);
         }
     }
 

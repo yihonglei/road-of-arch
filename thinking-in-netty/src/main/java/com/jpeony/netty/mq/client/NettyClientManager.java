@@ -1,6 +1,6 @@
 package com.jpeony.netty.mq.client;
 
-import com.jpeony.netty.mq.common.MessageData;
+import com.jpeony.netty.mq.common.Message;
 
 /**
  * @author yihonglei
@@ -17,8 +17,8 @@ public class NettyClientManager {
         return instance;
     }
 
-    public void send(final MessageData messageData) throws InterruptedException {
-        nettyClient.invokeOneWay(messageData);
+    public void send(final Message message) throws InterruptedException {
+        nettyClient.invokeOneWay(message);
     }
 
     public void start() {

@@ -1,7 +1,8 @@
 package com.jpeony.netty.controller;
 
 import com.jpeony.netty.mq.client.NettyClientManager;
-import com.jpeony.netty.mq.common.MessageData;
+import com.jpeony.netty.mq.common.Command;
+import com.jpeony.netty.mq.common.Message;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,16 +16,17 @@ public class NettyClientController {
     @GetMapping(value = "/sendMsg")
     public String nettyClient(String clientId) {
         try {
-            MessageData messageData = new MessageData();
-            messageData.setClientId(clientId);
-            messageData.setMessage("hello server, I am " + clientId);
+            Message pushDataMsg = new Message();
+            pushDataMsg.setClientId(clientId);
+            pushDataMsg.setCmd(Command.PUSH_DATA);
+            pushDataMsg.setData("hello server, I am clientId " + clientId);
 
             NettyClientManager producer = NettyClientManager.getInstance();
-            producer.send(messageData);
+            producer.send(pushDataMsg);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
 
-        return "netty client send msg success!";
+        return "netty client send msg to server success!";
     }
 }

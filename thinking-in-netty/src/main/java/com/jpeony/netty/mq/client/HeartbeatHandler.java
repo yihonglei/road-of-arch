@@ -1,33 +1,72 @@
 package com.jpeony.netty.mq.client;
 
-import io.netty.buffer.ByteBuf;
-import io.netty.channel.ChannelFutureListener;
+import com.jpeony.netty.mq.common.Command;
+import com.jpeony.netty.mq.common.Message;
 import io.netty.channel.ChannelHandlerContext;
-import io.netty.channel.ChannelInboundHandlerAdapter;
+import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.handler.timeout.IdleState;
 import io.netty.handler.timeout.IdleStateEvent;
 
-import java.nio.charset.Charset;
 import java.time.LocalTime;
 
 /**
  * @author yihonglei
  */
-public class HeartbeatHandler extends ChannelInboundHandlerAdapter {
+public class HeartbeatHandler extends SimpleChannelInboundHandler<Message> {
+    public static final String CLIENT_ID = System.getProperty("spring.netty.clientId", "101");
+    private int unRecPongTimes = 0;
 
     @Override
     public void userEventTriggered(ChannelHandlerContext ctx, Object evt) throws Exception {
         if (evt instanceof IdleStateEvent) {
-            IdleStateEvent idleStateEvent = (IdleStateEvent) evt;
-            if (idleStateEvent.state() == IdleState.WRITER_IDLE) {
-                System.out.println("10 秒了，需要发送消息给服务端了" + LocalTime.now());
-                // 向服务端送心跳包
-                ByteBuf buffer = getByteBuf(ctx);
-                // 发送心跳消息，并在发送失败时关闭该连接
-                ctx.writeAndFlush(buffer).addListener(ChannelFutureListener.CLOSE_ON_FAILURE);
+            IdleStateEvent event = (IdleStateEvent) evt;
+            String idleType = "";
+            if (event.state() == IdleState.READER_IDLE) {
+                idleType = "read idle";
+            } else if (event.state() == IdleState.WRITER_IDLE) {
+                idleType = "write idle";
+            } else if (event.state() == IdleState.ALL_IDLE) {
+                idleType = "all idle";
+            }
+            System.out.println("netty client idleType " + idleType);
+            if (this.unRecPongTimes < 3) {
+                sendPingMsg(ctx);
+                unRecPongTimes++;
+            } else {
+                ctx.channel().close();
             }
         } else {
             super.userEventTriggered(ctx, evt);
+        }
+    }
+
+    private void sendPingMsg(ChannelHandlerContext ctx) {
+        System.out.println("【客户端】10 秒了，需要发送消息给服务端了" + LocalTime.now());
+        Message pingDataMsg = new Message();
+        pingDataMsg.setClientId(CLIENT_ID);
+        pingDataMsg.setCmd(Command.PING);
+        pingDataMsg.setData("heartbeat");
+        ctx.writeAndFlush(pingDataMsg);
+    }
+
+    @Override
+    protected void channelRead0(ChannelHandlerContext ctx, Message msg) throws Exception {
+        System.out.println("【客户端】收到从服务端发来的消息：" + msg);
+
+        switch (msg.getCmd()) {
+            case Command.PONG:
+                System.out.println("【客户端】接收到服务端 pong 响应数据");
+                unRecPongTimes = 0;
+                break;
+            case Command.UPLOAD_DATA:
+                System.out.println("【客户端】接收到服务端 upload_data 上传数据");
+                // TODO 做业务
+                break;
+            case Command.PUSH_DATA_BACK:
+                System.out.println("【客户端】接收到服务端 push_data_back 响应数据");
+                break;
+            default:
+                break;
         }
     }
 
@@ -41,16 +80,5 @@ public class HeartbeatHandler extends ChannelInboundHandlerAdapter {
     public void channelInactive(ChannelHandlerContext ctx) throws Exception {
         System.out.println("检测到心跳服务器断开！！！！准备新建连接。");
         // TODO 断线重连
-    }
-
-    private ByteBuf getByteBuf(ChannelHandlerContext ctx) {
-        // 1. 获取二进制抽象 ByteBuf
-        ByteBuf buffer = ctx.alloc().buffer();
-        String time = "heartbeat:客户端心跳数据：" + LocalTime.now();
-        // 2. 准备数据，指定字符串的字符集为 utf-8
-        byte[] bytes = time.getBytes(Charset.forName("utf-8"));
-        // 3. 填充数据到 ByteBuf
-        buffer.writeBytes(bytes);
-        return buffer;
     }
 }

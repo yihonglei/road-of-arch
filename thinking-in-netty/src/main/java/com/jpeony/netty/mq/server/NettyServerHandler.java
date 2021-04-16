@@ -1,56 +1,63 @@
 package com.jpeony.netty.mq.server;
 
 import com.jpeony.netty.mq.common.ChannelCache;
-import io.netty.buffer.ByteBuf;
+import com.jpeony.netty.mq.common.Command;
+import com.jpeony.netty.mq.common.Message;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
-import io.netty.util.CharsetUtil;
-import org.springframework.stereotype.Component;
 
 /**
  * @author yihonglei
  */
-@Component
-public class NettyServerHandler extends SimpleChannelInboundHandler {
+public class NettyServerHandler extends SimpleChannelInboundHandler<Message> {
+
     @Override
     public void channelInactive(ChannelHandlerContext ctx) throws Exception {
-        System.out.println("客户端掉线......");
+        System.out.println("【服务端】客户端掉线......");
     }
 
     @Override
-    protected void channelRead0(ChannelHandlerContext ctx, Object msg) throws Exception {
-        ByteBuf in = (ByteBuf) msg;
-        System.out.println("server received msg from client：" + in.toString(CharsetUtil.UTF_8));
-        String message = in.toString(CharsetUtil.UTF_8);
+    protected void channelRead0(ChannelHandlerContext ctx, Message msg) throws Exception {
+        System.out.println("【服务端】收到从客户端发来的消息：" + msg);
 
-        /* 心跳数据是不发送数据 */
-        if (!message.contains("heartbeat")) {
-            String responseData = "Hello Client!";
-            ctx.writeAndFlush(Unpooled.copiedBuffer(responseData, CharsetUtil.UTF_8));
-            ChannelCache.put("101", ctx.channel());
+        switch (msg.getCmd()) {
+            case Command.PING:
+                System.out.println("【服务端】接收到客户端 ping");
+                // 响应客户端
+                Message pongDataMsg = new Message();
+                pongDataMsg.setClientId(msg.getClientId());
+                pongDataMsg.setCmd(Command.PONG);
+                pongDataMsg.setData("老铁，服务端还活着");
+                ctx.writeAndFlush(pongDataMsg);
+                break;
+            case Command.PUSH_DATA:
+                System.out.println("【服务端】接收到客户端 push_data 推送数据");
+                // TODO 做业务
+
+                Message pushDataBackMsg = new Message();
+                pushDataBackMsg.setClientId(msg.getClientId());
+                pushDataBackMsg.setCmd(Command.PUSH_DATA_BACK);
+                pushDataBackMsg.setData("【服务端】已经收到客户端发来的数据");
+                ctx.writeAndFlush(pushDataBackMsg);
+
+                // 连接通道加入缓存
+                ChannelCache.put("101", ctx.channel());
+                break;
+            default:
+                break;
         }
     }
 
-    /**
-     * 通知ChannelInboundHandler最后一次对channelRead()的调用时当前批量读取中的最后一条消息
-     */
     @Override
     public void channelReadComplete(ChannelHandlerContext ctx) {
-        // 将未决消息冲刷到远程节点，并且关闭该Channel
-//        ctx.writeAndFlush(Unpooled.EMPTY_BUFFER).addListener(ChannelFutureListener.CLOSE);
         ctx.writeAndFlush(Unpooled.EMPTY_BUFFER);
     }
 
-    /**
-     * 在读取操作期间，有异常抛出时会调用
-     */
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) {
-        // 打印异常栈跟踪信息
         cause.printStackTrace();
 
-        // 关闭该Channel
         ctx.close();
     }
 }
