@@ -9,6 +9,8 @@ import io.netty.util.CharsetUtil;
 import java.util.List;
 
 /**
+ * 将 ByteBuf 解码为对象
+ *
  * @author yihonglei
  */
 public class NettyDecoder extends MessageToMessageDecoder<ByteBuf> {

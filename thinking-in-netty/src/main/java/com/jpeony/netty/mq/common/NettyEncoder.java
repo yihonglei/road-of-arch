@@ -7,6 +7,8 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.MessageToByteEncoder;
 
 /**
+ * 将对象编码为 ByteBuf
+ *
  * @author yihonglei
  */
 @ChannelHandler.Sharable
