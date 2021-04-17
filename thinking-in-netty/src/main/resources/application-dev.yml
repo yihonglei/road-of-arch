@@ -1,3 +1,2 @@
-# port
-server:
+sever:
   port: 8765

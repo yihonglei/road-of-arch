@@ -9,7 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 /**
  * @author yihonglei
  */
-@SpringBootApplication(scanBasePackages = "com.jpeony.netty.*")
+@SpringBootApplication(scanBasePackages = "com.jpeony.netty")
 public class ApiApplication implements CommandLineRunner {
 
     public static void main(String[] args) {
