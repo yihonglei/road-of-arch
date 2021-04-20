@@ -3,12 +3,14 @@ package com.jpeony.algorithm.sorts;
 import java.util.Arrays;
 
 /**
- * 插入排序
+ * 插入排序：将数组划分为已排序区间和未排序区间，默认第一个元素作为已排序区间元素，
+ * 第二个元素作为未排序区间第一个元素，循环从未排序区间的第一个元素开始，依次取值，
+ * 在已排序区间中查找合适的位置进行插入，直到把未排序区间元素全部排序到已排序区间为止。
  *
  * @author yihonglei
  */
 public class InsertSort {
-    public static void insertSort(int[] arr, int n) {
+    private static void insertSort(int[] arr, int n) {
         if (n <= 1) {
             return;
         }
