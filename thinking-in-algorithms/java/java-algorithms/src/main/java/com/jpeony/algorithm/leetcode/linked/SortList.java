@@ -9,6 +9,7 @@ public class SortList {
         ListNode next;
 
         ListNode() {
+
         }
 
         ListNode(int val) {
@@ -28,6 +29,9 @@ public class SortList {
         }
     }
 
+    /**
+     * 插入排序算法，时间复杂度 O(n^2)，空间复杂度O(1)
+     */
     public static ListNode insertSortList(ListNode head) {
         if (head == null || head.next == null) {
             return head;
@@ -37,7 +41,7 @@ public class SortList {
         dummy.next = head;
         // 未排序区间
         ListNode preNode = dummy;
-        // 比较&插入，从未排序区间依次选择元素在未排序区间选择合适的位置插入，不移动节点，只移动节点里面的元素
+        // 比较和插入，从未排序区间依次选择元素在未排序区间选择合适的位置插入，不移动节点，只移动节点里面的元素
         while (head != null) {
             ListNode curNode = head;
             head = head.next;
@@ -59,6 +63,7 @@ public class SortList {
             }
         }
 
+
         head = dummy.next;
         return head;
     }
@@ -79,6 +84,7 @@ public class SortList {
         node2.next = tail;
 
         printAll(head);
+        System.out.println("");
         ListNode sortedHead = insertSortList(head);
         printAll(sortedHead);
     }
