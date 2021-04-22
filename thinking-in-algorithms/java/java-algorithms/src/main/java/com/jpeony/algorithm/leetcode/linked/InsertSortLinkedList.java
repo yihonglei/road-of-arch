@@ -1,9 +1,11 @@
 package com.jpeony.algorithm.leetcode.linked;
 
 /**
+ * 插入排序
+ *
  * @author yihonglei
  */
-public class SortList {
+public class InsertSortLinkedList {
     public static class ListNode {
         int val;
         ListNode next;
@@ -68,20 +70,20 @@ public class SortList {
         return head;
     }
 
-    public static ListNode mergeSortList(ListNode head) {
-
-        return null;
-    }
-
+    /**
+     * leetcode 用例提交有一条过不了，未找到原因 TODO
+     */
     public static void main(String[] args) {
-        ListNode head = new ListNode(4);
-        ListNode node1 = new ListNode(2);
-        ListNode node2 = new ListNode(1);
+        ListNode head = new ListNode(-2);
+        ListNode node1 = new ListNode(4);
+        ListNode node2 = new ListNode(2);
+        ListNode node3 = new ListNode(1);
         ListNode tail = new ListNode(3);
 
         head.next = node1;
         node1.next = node2;
-        node2.next = tail;
+        node2.next = node3;
+        node3.next = tail;
 
         printAll(head);
         System.out.println("");
