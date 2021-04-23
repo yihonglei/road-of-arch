@@ -8,13 +8,20 @@ import java.util.concurrent.ConcurrentHashMap;
  * @author yihonglei
  */
 public class ChannelCache {
-    private static ConcurrentHashMap<String, Channel> cache = new ConcurrentHashMap<>();
+
+    private ChannelCache() {
+
+    }
+
+    private static class SingleCache {
+        private static final ConcurrentHashMap<String, Channel> SINGLETON = new ConcurrentHashMap<>();
+    }
 
     public static void put(String clientId, Channel channel) {
-        cache.put(clientId, channel);
+        SingleCache.SINGLETON.put(clientId, channel);
     }
 
     public static Channel get(String clientId) {
-        return cache.get(clientId);
+        return SingleCache.SINGLETON.get(clientId);
     }
 }
