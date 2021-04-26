@@ -3,33 +3,18 @@ package com.jpeony.algorithm.sorts;
 import java.util.Arrays;
 
 /**
- * 选择排序
+ * 【选择排序】
+ * 跟插入排序非常类似，分为已排序区间和未排序区间，区别在于插入排序是从未排序
+ * 区间取元素在已排序区间选择合适位置插入，而选择排序则是在未排序区间选择最小的元素
+ * 追加到已排序区间。
  *
  * @author yihonglei
  */
 public class SelectSort {
-    public static void selectSort(int[] arr, int n) {
+    private static void selectSort(int[] arr, int n) {
         if (n <= 1) {
             return;
         }
-        // 总共要经过 N-1 轮比较
-//        for (int i = 0; i < n - 1; i++) {
-//            int minIndex = i;
-//            // 每轮需要比较的次数 N-i，已经比较出结果的，无需再比较
-//            for (int j = i + 1; j < arr.length; j++) {
-//                if (arr[j] < arr[minIndex]) {
-//                    // 记录目前能找到的最小值元素的下标
-//                    minIndex = j;
-//                }
-//            }
-//
-//            // 将找到的最小值和i位置所在的值进行交换
-//            if (i != minIndex) {
-//                int tmp = arr[i];
-//                arr[i] = arr[minIndex];
-//                arr[minIndex] = tmp;
-//            }
-//        }
 
         for (int i = 0; i < n - 1; i++) {
             int minIndex = i;
