@@ -3,12 +3,13 @@ package com.jpeony.algorithm.sorts;
 import java.util.Arrays;
 
 /**
- * 冒泡排序
+ * 【冒泡排序】
+ * 每次循环一个元素，找到合适的位置进行放置，重复 n 次，完成排序。
  *
  * @author yihonglei
  */
 public class BubbleSort {
-    public static void bubbleSort(int[] arr, int n) {
+    private static void bubbleSort(int[] arr, int n) {
         if (n <= 1) {
             return;
         }
