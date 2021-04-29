@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 /**
  * 归并排序（分治思想）
+ * 参考：https://www.ituring.com.cn/book/miniarticle/62897
  *
  * @author yihonglei
  */
@@ -11,7 +12,8 @@ public class MergeSort {
     private static int[] mergeSort(int[] sourceArray) {
         // 复制一份
         int[] arr = Arrays.copyOf(sourceArray, sourceArray.length);
-        if (arr.length < 2) {
+        // 只有一个元素的时候，就退出递归
+        if (arr.length <= 1) {
             return arr;
         }
         // 中位数（arr.length >> 1 简单等价于 arr.length/2）
@@ -48,7 +50,7 @@ public class MergeSort {
     }
 
     public static void main(String[] args) {
-        int[] arr = {5, 2, 4, 1, 3};
+        int[] arr = {5, 2, 4, 1};
         int[] arrNew = mergeSort(arr);
         System.out.println(Arrays.toString(arrNew));
     }
