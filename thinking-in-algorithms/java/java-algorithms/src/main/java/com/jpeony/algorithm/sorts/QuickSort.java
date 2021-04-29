@@ -3,12 +3,12 @@ package com.jpeony.algorithm.sorts;
 import java.util.Arrays;
 
 /**
- * 快速排序
+ * 快速排序（分治思想）
  *
  * @author yihonglei
  */
 public class QuickSort {
-    public static void quickSort(int[] arr, int start, int end) {
+    private static void quickSort(int[] arr, int start, int end) {
         // 开始与结束之间有元素才需要排序，否则，不排序
         if (start < end) {
             // 把数组中的第0个元素作为标准元素

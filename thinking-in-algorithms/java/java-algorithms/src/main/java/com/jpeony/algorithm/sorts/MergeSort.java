@@ -3,12 +3,12 @@ package com.jpeony.algorithm.sorts;
 import java.util.Arrays;
 
 /**
- * 归并排序
+ * 归并排序（分治思想）
  *
  * @author yihonglei
  */
 public class MergeSort {
-    public static int[] mergeSort(int[] sourceArray) {
+    private static int[] mergeSort(int[] sourceArray) {
         // 复制一份
         int[] arr = Arrays.copyOf(sourceArray, sourceArray.length);
         if (arr.length < 2) {
@@ -23,7 +23,7 @@ public class MergeSort {
         return merge(mergeSort(left), mergeSort(right));
     }
 
-    public static int[] merge(int[] left, int[] right) {
+    private static int[] merge(int[] left, int[] right) {
         int[] result = new int[left.length + right.length];
         int l = 0, r = 0, len = 0;
         while (len < left.length + right.length) {
