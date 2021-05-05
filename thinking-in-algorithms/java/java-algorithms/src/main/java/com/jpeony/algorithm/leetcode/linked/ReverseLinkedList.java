@@ -7,11 +7,12 @@ package com.jpeony.algorithm.leetcode.linked;
  */
 public class ReverseLinkedList {
 
-    public static ListNode reverseList(ListNode head) {
+    private static ListNode reverseList(ListNode head) {
         if (head == null) {
             return null;
         }
         /*
+         * 【方式一】
          * 创建新的链表，将原链表数据逐个放入新链表中，逻辑最清楚，但是，空间复杂度较高
          * 时间复杂度：O(n)
          * 空间复杂度：O(n)
@@ -23,7 +24,9 @@ public class ReverseLinkedList {
         //     rHead = cur;
         //     pNext = pNext.next;
         // }
+
         /*
+         * 【方式二】
          * 原地反转，时间和空间最优
          * 时间复杂度：O(n)
          * 空间复杂度：O(1)
@@ -59,11 +62,13 @@ public class ReverseLinkedList {
 
     public static void main(String[] args) {
         ListNode head = new ListNode(1);
-        head.next = new ListNode(2);
-        head.next.next = new ListNode(3);
+        ListNode one = new ListNode(2);
+        ListNode last = new ListNode(3);
+        head.next = one;
+        one.next = last;
 
         printAll(head);
-        ListNode newHead = reverseList(head);
-        printAll(newHead);
+        ListNode resHead = reverseList(head);
+        printAll(resHead);
     }
 }
