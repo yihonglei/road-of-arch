@@ -7,12 +7,12 @@ package com.jpeony.algorithm.leetcode.linked;
  */
 public class MergeTwoSortedLists {
     /**
-     * 迭代方式：
+     * 【迭代方式】
      * 1、定义个头结点，还有一个尾节点；
      * 2、不断在尾部添加元素；
      * 3、其中一个尾 null 时，将另外一个不为 null 的添加到队尾，因为两个链表是有序的；
      */
-    public static ListNode mergeTwoListsOne(ListNode l1, ListNode l2) {
+    private static ListNode mergeTwoListsOne(ListNode l1, ListNode l2) {
         if (l1 == null) {
             return l2;
         }
@@ -20,6 +20,7 @@ public class MergeTwoSortedLists {
         if (l2 == null) {
             return l1;
         }
+        
         // 有头链表（链表的哨兵节点，不参与业务处理的结点）
         ListNode head = new ListNode();
         ListNode last = head;
@@ -44,7 +45,7 @@ public class MergeTwoSortedLists {
     /**
      * 递归
      */
-    public static ListNode mergeTwoListsTwo(ListNode l1, ListNode l2) {
+    private static ListNode mergeTwoListsTwo(ListNode l1, ListNode l2) {
         if (l1 == null) {
             return l2;
         } else if (l2 == null) {
@@ -78,7 +79,6 @@ public class MergeTwoSortedLists {
             this.next = next;
         }
     }
-
 
     public static void main(String[] args) {
         ListNode l1 = new ListNode(1);
