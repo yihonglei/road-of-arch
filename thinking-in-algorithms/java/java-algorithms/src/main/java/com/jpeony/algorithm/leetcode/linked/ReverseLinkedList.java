@@ -49,11 +49,12 @@ public class ReverseLinkedList {
         }
     }
 
-    public static void printAll(ListNode head) {
+    private static void printAll(ListNode head) {
         while (head != null) {
             System.out.print(head.val + " ");
             head = head.next;
         }
+        System.out.println();
     }
 
     public static void main(String[] args) {
@@ -62,7 +63,6 @@ public class ReverseLinkedList {
         head.next.next = new ListNode(3);
 
         printAll(head);
-        System.out.println();
         ListNode newHead = reverseList(head);
         printAll(newHead);
     }
