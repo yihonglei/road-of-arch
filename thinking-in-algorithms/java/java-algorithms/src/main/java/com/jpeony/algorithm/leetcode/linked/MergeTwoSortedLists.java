@@ -20,7 +20,7 @@ public class MergeTwoSortedLists {
         if (l2 == null) {
             return l1;
         }
-        
+
         // 有头链表（链表的哨兵节点，不参与业务处理的结点）
         ListNode head = new ListNode();
         ListNode last = head;
