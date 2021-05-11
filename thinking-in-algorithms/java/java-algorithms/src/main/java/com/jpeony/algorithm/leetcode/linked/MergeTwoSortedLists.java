@@ -12,7 +12,7 @@ public class MergeTwoSortedLists {
      * 2、不断在尾部添加元素；
      * 3、其中一个尾 null 时，将另外一个不为 null 的添加到队尾，因为两个链表是有序的；
      */
-    private static ListNode mergeTwoListsOne(ListNode l1, ListNode l2) {
+    private static ListNode mergeTwoListsWhile(ListNode l1, ListNode l2) {
         if (l1 == null) {
             return l2;
         }
@@ -45,23 +45,20 @@ public class MergeTwoSortedLists {
     /**
      * 递归
      */
-    private static ListNode mergeTwoListsTwo(ListNode l1, ListNode l2) {
+    private static ListNode mergeTwoListsRecursion(ListNode l1, ListNode l2) {
         if (l1 == null) {
             return l2;
         } else if (l2 == null) {
             return l1;
         } else if (l1.val < l2.val) {
-            l1.next = mergeTwoListsTwo(l1.next, l2);
+            l1.next = mergeTwoListsRecursion(l1.next, l2);
             return l1;
         } else {
-            l2.next = mergeTwoListsTwo(l1, l2.next);
+            l2.next = mergeTwoListsRecursion(l1, l2.next);
             return l2;
         }
     }
 
-    /**
-     * Definition for singly-linked list.
-     */
     public static class ListNode {
         int val;
         ListNode next;
@@ -72,11 +69,6 @@ public class MergeTwoSortedLists {
 
         ListNode(int val) {
             this.val = val;
-        }
-
-        ListNode(int val, ListNode next) {
-            this.val = val;
-            this.next = next;
         }
     }
 
@@ -90,9 +82,10 @@ public class MergeTwoSortedLists {
         l2.next.next = new ListNode(4);
 
         // 迭代
-        ListNode listNode = mergeTwoListsOne(l1, l2);
+        // ListNode listNode = mergeTwoListsWhile(l1, l2);
+        
         // 递归
-//        ListNode listNode = mergeTwoListsTwo(l1, l2);
+        ListNode listNode = mergeTwoListsRecursion(l1, l2);
         while (listNode != null) {
             System.out.print(listNode.val + " ");
             listNode = listNode.next;
