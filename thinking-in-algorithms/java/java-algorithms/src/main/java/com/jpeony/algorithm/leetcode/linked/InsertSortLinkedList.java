@@ -2,7 +2,6 @@ package com.jpeony.algorithm.leetcode.linked;
 
 /**
  * 【排序链表】https://leetcode-cn.com/problems/sort-list/
- * 插入排序
  *
  * @author yihonglei
  */
@@ -33,7 +32,7 @@ public class InsertSortLinkedList {
     }
 
     /**
-     * 插入排序算法，时间复杂度 O(n^2)，空间复杂度O(1)
+     * 插入排序，时间复杂度 O(n^2)，空间复杂度O(1)
      */
     public static ListNode insertSortList(ListNode head) {
         if (head == null || head.next == null) {
