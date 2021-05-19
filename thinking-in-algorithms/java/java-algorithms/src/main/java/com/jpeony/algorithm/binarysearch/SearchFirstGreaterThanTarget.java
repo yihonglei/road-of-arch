@@ -1,14 +1,18 @@
 package com.jpeony.algorithm.binarysearch;
 
 /**
- * 【变体3】：查找第一个值大于等于给定值的元素
+ * 【二分查找-变体3】：查找第一个值大于等于给定值的元素
  *
  * @author yihonglei
  */
 public class SearchFirstGreaterThanTarget {
+    private static int search(int[] arr, int n, int val) {
+        return -1;
+    }
+
     public static void main(String[] args) {
         // 查找数组
-        int[] arr = {1, 2, 4, 5, 6, 7, 8, 9};
+        int[] arr = {1, 2, 3, 3, 3, 3, 4, 5, 6, 7, 8, 9};
         // 目标值
         int target = 3;
         // 目标值元素下标，默认-1

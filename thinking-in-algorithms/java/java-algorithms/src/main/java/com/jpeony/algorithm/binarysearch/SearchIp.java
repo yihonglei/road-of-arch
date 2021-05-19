@@ -1,7 +1,7 @@
 package com.jpeony.algorithm.binarysearch;
 
 /**
- * ip归属地查找，源数据如下，输入一个ip能够返回对应的归属地
+ * ip 归属地查找，源数据如下，输入一个 ip 能够返回对应的归属地：
  * [202.102.133.0, 202.102.133.255]  山东东营市
  * [202.102.135.0, 202.102.136.255]  山东烟台
  * [202.102.156.34, 202.102.157.255] 山东青岛
@@ -11,7 +11,11 @@ package com.jpeony.algorithm.binarysearch;
  *
  * @author yihonglei
  */
-public class SearchIP {
+public class SearchIp {
+    private static int search(int[] arr, int n, int val) {
+        return -1;
+    }
+
     public static void main(String[] args) {
 
     }
