@@ -12,7 +12,7 @@ public class SearchLastLessThanTarget {
 
     public static void main(String[] args) {
         // 查找数组
-        int[] arr = {1, 2, 3, 3, 3, 3, 4, 5, 6, 7, 8, 9};
+        int[] arr = {1, 2, 2, 2, 2, 4, 5, 6, 7, 8, 9};
         // 目标元素
         int target = 3;
         // 目标元素的下标位置，默认-1

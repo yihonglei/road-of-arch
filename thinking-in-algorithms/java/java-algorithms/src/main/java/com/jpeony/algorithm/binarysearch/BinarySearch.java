@@ -12,21 +12,22 @@ package com.jpeony.algorithm.binarysearch;
  * 2、mid 的取值，mid=(low+high)/2 可能会溢出，low+(high-low)/2 优化版本，low+((high-low)>>1) 最高性能
  * 3、low 和 high 的更新，一定要搞清楚待搜索空间是左区间还是右区间，别缩错了
  * 【应用场景】
- *  1、只支持顺序表结构，简单说就是数组
- *  2、二分查找针对的是有序数据
- *  3、数据量太小不适合二分查找
- *  4、数据量太大也不适合二分查找
+ * 1、只支持顺序表结构，简单说就是数组
+ * 2、二分查找针对的是有序数据
+ * 3、数据量太小不适合二分查找
+ * 4、数据量太大也不适合二分查找
+ *
  * @author yihonglei
  */
 public class BinarySearch {
-    private static int search(int[] arr, int n, int val) {
+    private static int search(int[] arr, int n, int target) {
         int low = 0;
         int high = n - 1;
         while (low <= high) {
             int mid = (low + high) / 2;
-            if (val == arr[mid]) {
+            if (target == arr[mid]) {
                 return mid;
-            } else if (val < arr[mid]) {
+            } else if (target < arr[mid]) {
                 high = mid - 1;
             } else {
                 low = mid + 1;
@@ -38,7 +39,8 @@ public class BinarySearch {
 
     public static void main(String[] args) {
         int[] arr = {1, 2, 3, 4, 5, 6, 7, 8, 9};
-        int index = search(arr, arr.length, 4);
+        int target = 4;
+        int index = search(arr, arr.length, target);
         System.out.println("index = " + index);
     }
 }
