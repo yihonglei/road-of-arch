@@ -11,11 +11,11 @@ public class SearchFirstEqualsTarget {
         int high = n - 1;
         while (low <= high) {
             int mid = low + (high - low) / 2;
-            if (target < arr[mid]) {
+            if (arr[mid] > target) {
                 high = mid - 1;
-            } else if (target > arr[mid]) {
+            } else if (arr[mid] < target) {
                 low = mid + 1;
-            } else if (target == arr[mid]) {
+            } else if (arr[mid] == target) {
                 if (mid == 0 || arr[mid - 1] != target) {
                     return mid;
                 } else {
@@ -23,13 +23,12 @@ public class SearchFirstEqualsTarget {
                 }
             }
         }
+
         return -1;
     }
 
     public static void main(String[] args) {
-        // 查找数组
         int[] arr = {1, 2, 3, 3, 3, 3, 4, 5, 6, 7, 8, 9};
-        // 目标元素
         int target = 3;
         int index = search(arr, arr.length, target);
         System.out.println("index = " + index);
