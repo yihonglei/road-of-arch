@@ -70,15 +70,15 @@ public class LinkedListCycleLCCI {
     public static void main(String[] args) {
         ListNode head = new ListNode(1);
         ListNode one = new ListNode(2);
-//        ListNode two = new ListNode(3);
-//        ListNode tail = new ListNode(4);
+        ListNode two = new ListNode(3);
+        ListNode tail = new ListNode(4);
 
         head.next = one;
-//        one.next = two;
-//        two.next = tail;
-//        tail.next = head;
+        one.next = two;
+        two.next = tail;
+        tail.next = head;
 
-//        System.out.println("detectCycleSet = " + detectCycleSet(head));
+        System.out.println("detectCycleSet = " + detectCycleSet(head));
         System.out.println("detectCycleFastSlowPoint = " + detectCycleSet(head));
     }
 }
