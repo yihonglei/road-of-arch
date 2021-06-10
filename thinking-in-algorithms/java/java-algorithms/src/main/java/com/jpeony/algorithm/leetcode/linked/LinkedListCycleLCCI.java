@@ -14,12 +14,12 @@ import java.util.Set;
 public class LinkedListCycleLCCI {
 
     /**
-     * 【集合方式】
+     * 【哈希表】
      * 时间复杂度 O(n)
      * 空间复杂度 O(n)
      */
-    public static boolean detectCycleSet(ListNode head) {
-        if (head == null || head.next == null) {
+    public static boolean hasCycleSet(ListNode head) {
+        if (head == null) {
             return false;
         }
 
@@ -40,15 +40,19 @@ public class LinkedListCycleLCCI {
      * 时间复杂度 O(n)
      * 空间复杂度 O(1)
      */
-    public static boolean detectCycleFastSlowPoint(ListNode head) {
-        if (head == null || head.next == null) {
+    public static boolean hasCycleFastSlowPoint(ListNode head) {
+        if (head == null) {
             return false;
         }
         ListNode slow = head;
         ListNode fast = head;
-        while (slow != null && fast.next != null) {
+        while (fast != null) {
             slow = slow.next;
-            fast = fast.next.next;
+            if (fast.next != null) {
+                fast = fast.next.next;
+            } else {
+                return false;
+            }
 
             if (slow == fast) {
                 return true;
@@ -78,7 +82,7 @@ public class LinkedListCycleLCCI {
         two.next = tail;
         tail.next = head;
 
-        System.out.println("detectCycleSet = " + detectCycleSet(head));
-        System.out.println("detectCycleFastSlowPoint = " + detectCycleSet(head));
+        System.out.println("hasCycleSet = " + hasCycleSet(head));
+        System.out.println("hasCycleFastSlowPoint = " + hasCycleFastSlowPoint(head));
     }
 }
