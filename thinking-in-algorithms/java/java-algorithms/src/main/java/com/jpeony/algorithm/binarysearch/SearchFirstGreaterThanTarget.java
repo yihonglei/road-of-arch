@@ -11,7 +11,7 @@ public class SearchFirstGreaterThanTarget {
         int high = n - 1;
         while (low <= high) {
             int mid = low + (high - low) / 2;
-            if (arr[mid] >= target) {
+            if (target >= arr[mid]) {
                 if (mid == 0 || arr[mid - 1] < target) {
                     return mid;
                 } else {

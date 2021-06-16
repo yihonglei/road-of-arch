@@ -11,9 +11,9 @@ public class SearchLastEqualsTarget {
         int high = n - 1;
         while (low <= high) {
             int mid = low + (high - low) / 2;
-            if (arr[mid] > target) {
+            if (target < arr[mid]) {
                 high = mid - 1;
-            } else if (arr[mid] < target) {
+            } else if (target > arr[mid]) {
                 low = mid + 1;
             } else {
                 if (mid == n - 1 || arr[mid + 1] != target) {

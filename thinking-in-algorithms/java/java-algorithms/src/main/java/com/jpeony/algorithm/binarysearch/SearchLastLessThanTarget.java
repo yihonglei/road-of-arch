@@ -11,7 +11,7 @@ public class SearchLastLessThanTarget {
         int high = n - 1;
         while (low <= high) {
             int mid = low + (high - low) / 2;
-            if (arr[mid] <= target) {
+            if (target <= arr[mid]) {
                 if (mid == n - 1 || arr[mid + 1] > target) {
                     return mid;
                 } else {
@@ -21,7 +21,7 @@ public class SearchLastLessThanTarget {
                 high = mid - 1;
             }
         }
-        
+
         return -1;
     }
 
