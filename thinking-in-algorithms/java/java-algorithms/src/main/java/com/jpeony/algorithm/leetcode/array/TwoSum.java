@@ -32,14 +32,14 @@ public class TwoSum {
      * 空间复杂度：每次循环的值都加入到内存中，所以空间复杂度为 O(n)
      */
     private static int[] twoSum2(int[] nums, int target) {
-        HashMap<Integer, Integer> maps = new HashMap<Integer, Integer>();
+        HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
         for (int i = 0; i < nums.length; i++) {
             int x = target - nums[i];
-            if (maps.containsKey(x)) {
-                return new int[]{maps.get(x), i};
+            if (map.containsKey(x)) {
+                return new int[]{map.get(x), i};
             }
 
-            maps.put(nums[i], i);
+            map.put(nums[i], i);
         }
         return new int[0];
     }
