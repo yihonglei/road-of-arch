@@ -17,18 +17,18 @@ public class SelectSort {
         }
 
         for (int i = 0; i < n - 1; i++) {
-            int minIndex = i;
+            int minPos = i;
             // 比较：取未排序区间最小值
             int j = i;
             for (; j < n; j++) {
-                if (arr[minIndex] > arr[j]) {
-                    minIndex = j;
+                if (arr[minPos] > arr[j]) {
+                    minPos = j;
                 }
             }
             // 交换：坐标相同，无需交换，否则，需要进行交换，将未排序区间最小值交换插入到已排序区间尾端
-            if (i != minIndex) {
-                int tmp = arr[minIndex];
-                arr[minIndex] = arr[i];
+            if (i != minPos) {
+                int tmp = arr[minPos];
+                arr[minPos] = arr[i];
                 arr[i] = tmp;
             }
         }
