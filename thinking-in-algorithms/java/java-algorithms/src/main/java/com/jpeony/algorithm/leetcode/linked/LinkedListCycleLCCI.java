@@ -18,7 +18,7 @@ public class LinkedListCycleLCCI {
      * 空间复杂度 O(n)
      */
     public static boolean hasCycleSet(ListNode head) {
-        if (head == null) {
+        if (head == null || head.next == null) {
             return false;
         }
 
@@ -40,7 +40,7 @@ public class LinkedListCycleLCCI {
      * 空间复杂度 O(1)
      */
     public static boolean hasCycleFastSlowPoint(ListNode head) {
-        if (head == null) {
+        if (head == null || head.next == null) {
             return false;
         }
         ListNode slow = head;
