@@ -24,8 +24,8 @@ public class RemoveNthFromEnd {
         int removeIndex = length - n + 1;
 
         // remove element
-        ListNode res = new ListNode();
-        ListNode tail = res;
+        ListNode dummy = new ListNode();
+        ListNode tail = dummy;
         int j = 1;
         ListNode curEle = head;
         while (curEle != null) {
@@ -43,7 +43,7 @@ public class RemoveNthFromEnd {
             j++;
         }
 
-        return res.next;
+        return dummy.next;
     }
 
     private static class ListNode {
