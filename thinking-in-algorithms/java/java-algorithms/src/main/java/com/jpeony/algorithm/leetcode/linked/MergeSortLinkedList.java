@@ -33,7 +33,7 @@ public class MergeSortLinkedList {
     }
 
     /**
-     * 归并排序，时间复杂度 O(nlogn)，空间复杂度O(n)
+     * 自顶向下归并排序，时间复杂度 O(nlogn)，空间复杂度O(logn)
      */
     private static ListNode sortList(ListNode head) {
         if (head == null || head.next == null) {
@@ -43,7 +43,6 @@ public class MergeSortLinkedList {
         /*
          * 【通过快慢指针找到链表中点】
          * 快指针每次走两步，慢指针每次走一步。遍历完链表时，慢指针停留的位置就在链表的中点。
-         *
          */
         ListNode slow = head;
         ListNode fast = head.next;
