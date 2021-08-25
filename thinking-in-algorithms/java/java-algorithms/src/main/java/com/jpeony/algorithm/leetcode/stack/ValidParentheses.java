@@ -10,12 +10,12 @@ import java.util.LinkedList;
  */
 public class ValidParentheses {
 
-    private static boolean isValid(String s) {
-        if (s.equals("")) {
+    private static boolean isValid(String str) {
+        if (str == null || str.equals("")) {
             return true;
         }
         // 转换为字符数组
-        char[] cArr = s.toCharArray();
+        char[] cArr = str.toCharArray();
         // 定义字符栈
         Deque<Character> cStack = new LinkedList<>();
         // 有效括号匹配
