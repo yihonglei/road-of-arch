@@ -12,10 +12,13 @@ public class ValidParentheses {
 
     private static boolean isValid(String str) {
         if (str == null || str.equals("")) {
-            return true;
+            return false;
         }
         // 转换为字符数组
         char[] cArr = str.toCharArray();
+        if (cArr.length % 2 != 0) {// 如果为奇数个元素，直接返回 false，不可能成对匹配
+            return false;
+        }
         // 定义字符栈
         Deque<Character> cStack = new LinkedList<>();
         // 有效括号匹配
