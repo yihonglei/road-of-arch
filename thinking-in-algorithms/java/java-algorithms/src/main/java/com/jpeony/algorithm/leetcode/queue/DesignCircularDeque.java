@@ -11,9 +11,6 @@ public class DesignCircularDeque {
     private int front;
     private int rear;
 
-    /**
-     * Initialize your data structure here. Set the size of the deque to be k.
-     */
     public DesignCircularDeque(int k) {
         capacity = k + 1;
         arr = new int[capacity];
@@ -28,9 +25,6 @@ public class DesignCircularDeque {
         rear = 0;
     }
 
-    /**
-     * Adds an item at the front of Deque. Return true if the operation is successful.
-     */
     public boolean insertFront(int value) {
         if (isFull()) {
             return false;
@@ -40,9 +34,6 @@ public class DesignCircularDeque {
         return true;
     }
 
-    /**
-     * Adds an item at the rear of Deque. Return true if the operation is successful.
-     */
     public boolean insertLast(int value) {
         if (isFull()) {
             return false;
@@ -52,9 +43,6 @@ public class DesignCircularDeque {
         return true;
     }
 
-    /**
-     * Deletes an item from the front of Deque. Return true if the operation is successful.
-     */
     public boolean deleteFront() {
         if (isEmpty()) {
             return false;
@@ -64,21 +52,14 @@ public class DesignCircularDeque {
         return true;
     }
 
-    /**
-     * Deletes an item from the rear of Deque. Return true if the operation is successful.
-     */
     public boolean deleteLast() {
         if (isEmpty()) {
             return false;
         }
-        // rear 被设计在数组的末尾，所以是 -1
         rear = (rear - 1 + capacity) % capacity;
         return true;
     }
 
-    /**
-     * Get the front item from the deque.
-     */
     public int getFront() {
         if (isEmpty()) {
             return -1;
@@ -86,29 +67,18 @@ public class DesignCircularDeque {
         return arr[front];
     }
 
-    /**
-     * Get the last item from the deque.
-     */
     public int getRear() {
         if (isEmpty()) {
             return -1;
         }
-        // 当 rear 为 0 时防止数组越界
         return arr[(rear - 1 + capacity) % capacity];
     }
 
-    /**
-     * Checks whether the circular deque is empty or not.
-     */
     public boolean isEmpty() {
         return front == rear;
     }
 
-    /**
-     * Checks whether the circular deque is full or not.
-     */
     public boolean isFull() {
-        // 注意：这个设计是非常经典的做法
         return (rear + 1) % capacity == front;
     }
 
@@ -120,8 +90,8 @@ public class DesignCircularDeque {
         circularDeque.insertFront(3);
         circularDeque.insertFront(4);
 
-        circularDeque.getRear();
         circularDeque.isFull();
+        circularDeque.getRear();
         circularDeque.deleteLast();
         circularDeque.insertFront(4);
         circularDeque.getFront();
