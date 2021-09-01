@@ -6,17 +6,18 @@ package com.jpeony.algorithm.leetcode.recursion;
  * @author yihonglei
  */
 public class AddTwoNumbers {
-
+    /**
+     * 时间复杂度：O(n)
+     * 空间复杂度：O(n)
+     */
     public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        if (l1 == null) {
-            return null;
-        }
-        if (l2 == null) {
+        if (l1 == null || l2 == null) {
             return null;
         }
 
-        // 队列头结点和尾节点
-        ListNode head = null, tail = null;
+        // 哑结点
+        ListNode dummy = new ListNode(-1);
+        ListNode last = dummy;
         // 当前求和构建节点
         ListNode curr = null;
         // 俩数相加进位值
@@ -27,20 +28,15 @@ public class AddTwoNumbers {
             int n1 = l1 != null ? l1.val : 0;
             int n2 = l2 != null ? l2.val : 0;
             int sum = n1 + n2 + carry;
-
             // 构建节点
-            curr = new ListNode(sum % 10);
+            int val = sum % 10;
             // 计算进位值
             carry = sum / 10;
-
+            // 构建节点
+            curr = new ListNode(val);
             // 入队
-            if (head == null) {
-                head = tail = curr;
-            } else {
-                tail.next = curr;
-                tail = curr;
-            }
-
+            last.next = curr;
+            last = last.next;
             // 下一节点
             if (l1 != null) {
                 l1 = l1.next;
@@ -49,11 +45,12 @@ public class AddTwoNumbers {
                 l2 = l2.next;
             }
         }
+        // 最后一次进位精度入结点
         if (carry > 0) {
-            tail.next = new ListNode(carry);
+            last.next = new ListNode(carry);
         }
 
-        return head;
+        return dummy.next;
     }
 
     public static class ListNode {
@@ -66,10 +63,6 @@ public class AddTwoNumbers {
 
         public ListNode(int val) {
             this.val = val;
-        }
-
-        public ListNode(int val, ListNode next) {
-
         }
     }
 
