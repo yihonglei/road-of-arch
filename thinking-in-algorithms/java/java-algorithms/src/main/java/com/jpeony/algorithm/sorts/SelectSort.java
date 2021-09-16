@@ -11,14 +11,19 @@ import java.util.Arrays;
  * @author yihonglei
  */
 public class SelectSort {
+    /**
+     * 时间复杂度：O(n^2)
+     * 空间复杂度：O(1)
+     */
     private static void selectSort(int[] arr, int n) {
         if (n <= 1) {
             return;
         }
 
         for (int i = 0; i < n - 1; i++) {
+            // 变量声明：最小值下标
             int minPos = i;
-            // 比较：取未排序区间最小值
+            // 比较：查找未排序区间最小值下标
             int j = i;
             for (; j < n; j++) {
                 if (arr[minPos] > arr[j]) {
