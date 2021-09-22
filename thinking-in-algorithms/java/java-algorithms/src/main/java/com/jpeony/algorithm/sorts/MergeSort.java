@@ -9,6 +9,10 @@ import java.util.Arrays;
  * @author yihonglei
  */
 public class MergeSort {
+    /**
+     * 时间复杂度：O(nlogn)
+     * 空间复杂度：O(n)
+     */
     private static int[] mergeSort(int[] sourceArray) {
         // 复制一份
         int[] arr = Arrays.copyOf(sourceArray, sourceArray.length);
