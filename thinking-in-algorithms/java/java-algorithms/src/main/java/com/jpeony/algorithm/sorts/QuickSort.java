@@ -8,6 +8,10 @@ import java.util.Arrays;
  * @author yihonglei
  */
 public class QuickSort {
+    /**
+     * 时间复杂度：O(nlogn)
+     * 空间复杂度：O(n)
+     */
     private static void quickSort(int[] arr, int start, int end) {
         // 开始与结束之间有元素才需要排序，否则，不排序
         if (start < end) {
