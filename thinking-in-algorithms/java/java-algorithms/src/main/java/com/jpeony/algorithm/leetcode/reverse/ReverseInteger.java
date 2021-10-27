@@ -6,6 +6,11 @@ package com.jpeony.algorithm.leetcode.reverse;
  * @author yihonglei
  */
 public class ReverseInteger {
+    /**
+     * 算法实现：根据数据规律，取模求值加余
+     * 时间复杂度：O(n)
+     * 空间复杂度：O(1)
+     */
     private static int reverse(int x) {
         // 正负标识
         int flag = 1;
@@ -24,7 +29,7 @@ public class ReverseInteger {
     }
 
     public static void main(String[] args) {
-        int y = -2147;
-        System.out.println(reverse(y));
+        int x = -2147;
+        System.out.println(reverse(x));
     }
 }
