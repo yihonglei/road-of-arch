@@ -9,7 +9,7 @@ import java.util.Arrays;
  */
 public class ReverseString {
     /**
-     * 算法实现：双指针左右数据交换，实现字符串反转。
+     * 算法思想：双指针左右数据交换，实现字符串反转。
      * 时间复杂度：O(n)
      * 空间复杂度：O(1)
      */
