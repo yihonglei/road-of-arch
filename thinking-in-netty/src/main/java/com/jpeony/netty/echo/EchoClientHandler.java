@@ -12,7 +12,7 @@ import io.netty.util.CharsetUtil;
  *
  * @author yihonglei
  */
-@ChannelHandler.Sharable // 标记该类的实例可以被多个Channel共享
+@ChannelHandler.Sharable // 标记该类的实例可以被多个 Channel 共享
 public class EchoClientHandler extends SimpleChannelInboundHandler<ByteBuf> {
 
     /**
@@ -20,7 +20,7 @@ public class EchoClientHandler extends SimpleChannelInboundHandler<ByteBuf> {
      */
     @Override
     public void channelActive(ChannelHandlerContext ctx) {
-        // 当被通知Channel是活跃的时候，发送一条消息（向服务端发送一条消息）
+        // 当被通知 Channel 是活跃的时候，发送一条消息（向服务端发送一条消息）
         String data = "Hello Server!";
         ctx.writeAndFlush(Unpooled.copiedBuffer(data, CharsetUtil.UTF_8));
     }
@@ -42,7 +42,7 @@ public class EchoClientHandler extends SimpleChannelInboundHandler<ByteBuf> {
         // 打印异常栈跟踪信息
         cause.printStackTrace();
 
-        // 关闭该Channel
+        // 关闭该 Channel
         ctx.close();
     }
 }

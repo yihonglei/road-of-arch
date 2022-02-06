@@ -11,7 +11,7 @@ import io.netty.util.CharsetUtil;
  *
  * @author yihonglei
  */
-@ChannelHandler.Sharable //注解@ChannelHandler.Sharable表示一个ChannelHandler可以被多个Channel安全地共享。
+@ChannelHandler.Sharable //注解@ ChannelHandler.Sharable 表示一个 ChannelHandler 可以被多个 Channel 安全地共享。
 public class EchoServerHandler extends SimpleChannelInboundHandler {
 
     /**
@@ -35,11 +35,11 @@ public class EchoServerHandler extends SimpleChannelInboundHandler {
     }
 
     /**
-     * 通知ChannelInboundHandler最后一次对channelRead()的调用时当前批量读取中的最后一条消息
+     * 通知 ChannelInboundHandler 最后一次对 channelRead() 的调用时当前批量读取中的最后一条消息
      */
     @Override
     public void channelReadComplete(ChannelHandlerContext ctx) {
-        // 将未决消息冲刷到远程节点，并且关闭该Channel
+        // 将未决消息冲刷到远程节点，并且关闭该 Channel
         ctx.writeAndFlush(Unpooled.EMPTY_BUFFER).addListener(ChannelFutureListener.CLOSE);
     }
 
@@ -51,7 +51,7 @@ public class EchoServerHandler extends SimpleChannelInboundHandler {
         // 打印异常栈跟踪信息
         cause.printStackTrace();
 
-        // 关闭该Channel
+        // 关闭该 Channel
         ctx.close();
     }
 }
