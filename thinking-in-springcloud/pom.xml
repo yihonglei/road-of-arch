@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.0.6.RELEASE</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.jpeony</groupId>
+    <artifactId>thinking-in-springcloud</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <name>thinking-in-springcloud</name>
+
+    <modules>
+        <module>eureka-server</module>
+        <module>eureka-provider-order</module>
+        <module>eureka-consumer-user</module>
+        <module>eureka-server-available</module>
+        <module>eureka-register-available</module>
+        <module>eureka-consumer-ribbon</module>
+        <module>eureka-consumer-hystrix</module>
+        <module>eureka-server-security</module>
+        <module>eureka-consumer-feign</module>
+        <module>eureka-feign-api</module>
+        <module>eureka-consumer-feign-hystrix</module>
+        <module>eureka-consumer-feign-hystrix-dashboard</module>
+        <module>eureka-hystrix-dashboard</module>
+        <module>eureka-hystrix-turbine</module>
+        <module>eureka-gateway-zuul</module>
+        <module>config-server</module>
+        <module>config-client</module>
+        <module>eureka-sleuth</module>
+        <module>eureka-zipkin-server</module>
+    </modules>
+
+    <!-- 版本号管理 -->
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>1.8</java.version>
+        <spring-cloud-version>Finchley.SR2</spring-cloud-version>
+    </properties>
+
+    <!-- jar包依赖 -->
+    <dependencies>
+        <!-- Spring Boot全栈Web开发模块，包含嵌入Tomcat、Spring、Spring MVC等等-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <!-- Spring Boot单服务单元测试 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+        </dependency>
+        <!-- 监控 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+    </dependencies>
+
+    <!-- Spring Cloud -->
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud-version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+</project>
