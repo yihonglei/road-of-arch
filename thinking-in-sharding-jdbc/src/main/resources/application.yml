@@ -1,3 +1,38 @@
+server:
+  port: 8706
+
 spring:
-  profiles:
-    active: dev
+  shardingsphere:
+    datasource: ###### 设置数据源 ######
+      names: ds0,ds1
+      ds0:
+        type: com.alibaba.druid.pool.DruidDataSource # 指定数据库连接池
+        driver-class-name: com.mysql.jdbc.Driver # 指定驱动
+        url: jdbc:mysql://localhost:3306/ds0?characterEncoding=utf-8&useSSL=false # mysql 链接地址
+        username: root # 用户名
+        password: 123456 # 密码
+      ds1:
+        type: com.alibaba.druid.pool.DruidDataSource # 指定数据库连接池
+        driver-class-name: com.mysql.jdbc.Driver # 指定驱动
+        url: jdbc:mysql://localhost:3306/ds1?characterEncoding=utf-8&useSSL=false # mysql 链接地址
+        username: root # 用户名
+        password: 123456 # 密码
+    sharding: ###### 设置分库，分表策略 ######
+      default-data-source-name: ds0 # 不分表，默认数据源
+      tables:
+        user: # user 表的分片配置
+          actual-data-nodes: ds$->{0..1}.user_$->{0..3}
+          database-strategy: # user 分库策略
+            inline:
+              sharding-column: id # 根据 id 进行分片
+              algorithm-expression: ds$->{id % 2} # 对 id 进行取模
+          table-strategy: # user 分表策略
+            inline:
+              sharding-column: id # 根据 id 进行分片
+              algorithm-expression: user_$->{id % 4} # 对 id 进行取模
+
+# MyBatis
+mybatis:
+  mapper-locations: classpath:mapper/**/**Mapper.xml
+  configuration:
+    map-underscore-to-camel-case: true

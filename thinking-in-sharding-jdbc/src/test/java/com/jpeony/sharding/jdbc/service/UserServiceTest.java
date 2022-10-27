@@ -1,16 +1,20 @@
 package com.jpeony.sharding.jdbc.service;
 
-import com.jpeony.sharding.jdbc.BaseServletTest;
+
+import com.jpeony.sharding.jdbc.ApiApplication;
 import com.jpeony.sharding.jdbc.pojo.User;
-import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
 /**
  * @author yihonglei
  */
-@Slf4j
-public class UserServiceTest extends BaseServletTest {
+@RunWith(SpringRunner.class)
+@SpringBootTest(classes = ApiApplication.class)
+public class UserServiceTest {
     @Autowired
     private UserService userService;
 
