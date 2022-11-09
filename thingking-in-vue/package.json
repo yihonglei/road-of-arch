@@ -1,0 +1,237 @@
+{
+  "name": "jigou_dev",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "dev-build": "vue-cli-service build --mode development"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "babel-polyfill": "^6.26.0",
+    "crypto-js": "^4.1.1",
+    "echarts": "^4.2.1",
+    "element-ui": "^2.5.4",
+    "eslint-plugin-flow-vars": "^0.5.0",
+    "eslint-plugin-html": "^5.0.3",
+    "file-saver": "^2.0.0",
+    "underscore": "^1.9.1",
+    "vue": "^2.5.22",
+    "vue-amap": "^0.5.8",
+    "vue-logger": "0.0.4",
+    "vue-router": "^3.0.2",
+    "vuex": "^3.1.0",
+    "xlsx": "^0.14.1"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^3.4.0",
+    "@vue/cli-plugin-eslint": "^3.4.0",
+    "@vue/cli-service": "^3.7.0",
+    "@vue/eslint-config-standard": "^4.0.0",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.8.0",
+    "eslint-plugin-vue": "^5.0.0",
+    "script-loader": "^0.7.2",
+    "vue-template-compiler": "^2.5.21"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended",
+      "@vue/standard"
+    ],
+    "rules": {
+      "space-before-function-paren": 0,
+      "文件以单一的换行符结束": "",
+      "eol-last": 0,
+      "可以多余的冒号": "",
+      "no-extra-semi": 0,
+      "不允许出现不必要的分号": "",
+      "必须使用全等": "",
+      "eqeqeq": 0,
+      "连续声明": "",
+      "one-var": 0,
+      "不能有未定义的变量": "",
+      "no-undef": 1,
+      "警告": "",
+      "不必要的bool转换": "",
+      "no-extra-boolean-cast": 1,
+      "非必要的括号": "",
+      "no-extra-parens": 1,
+      "块语句中的内容不能为空": "",
+      "no-empty": 1,
+      "未定义前不能使用": "",
+      "no-use-before-define": [
+        1,
+        "nofunc"
+      ],
+      "循环复杂度": "",
+      "complexity": [
+        1,
+        30
+      ],
+      "不能有声明后未被使用的变量或参数": "",
+      "no-unused-vars": [
+        1,
+        {
+          "vars": "all",
+          "args": "after-used"
+        }
+      ],
+      "vue": "",
+      "flow-vars/define-flow-type": 0,
+      "flow-vars/use-flow-type": 0,
+      "错误": "",
+      "对象字面量项尾不能有逗号": "",
+      "comma-dangle": [
+        2,
+        "never"
+      ],
+      "禁止使用debugger": "",
+      "no-debugger": 2,
+      "禁止在条件中使用常量表达式 if(true) if(1)": "",
+      "no-constant-condition": 2,
+      "函数参数不能重复": "",
+      "no-dupe-args": 2,
+      "在创建对象字面量时不允许键重复 {a:1,a:1}": "",
+      "no-dupe-keys": 2,
+      "switch中的case标签不能重复": "",
+      "no-duplicate-case": 2,
+      "不允许switch按顺序全部执行所有case": "",
+      "no-fallthrough": 2,
+      "正则表达式中的[]内容不能为空": "",
+      "no-empty-character-class": 2,
+      "禁止无效的正则表达式": "",
+      "no-invalid-regexp": 2,
+      "禁止重复的函数声明": "",
+      "no-func-assign": 2,
+      "必须使用合法的typeof的值": "",
+      "valid-typeof": 2,
+      "不能有无法执行的代码": "",
+      "no-unreachable": 2,
+      "避免多行表达式": "",
+      "no-unexpected-multiline": 2,
+      "禁止稀疏数组， [1,,2]": "",
+      "no-sparse-arrays": 2,
+      "严格模式中规定的限制标识符不能作为声明时的变量名使用": "",
+      "no-shadow-restricted-names": 2,
+      "禁止在条件表达式中使用赋值语句": "",
+      "no-cond-assign": 2,
+      "不能重写native对象": "",
+      "no-native-reassign": 2,
+      "代码风格": "",
+      "如果if语句里面有return,后面不能跟else语句": "",
+      "no-else-return": 1,
+      "不能用多余的空格": "",
+      "no-multi-spaces": 1,
+      "对象字面量中冒号的前后空格": "",
+      "key-spacing": [
+        1,
+        {
+          "beforeColon": false,
+          "afterColon": true
+        }
+      ],
+      "块语句中使用var": "",
+      "block-scoped-var": 2,
+      "return 后面是否允许省略": "",
+      "consistent-return": 2,
+      "在对象中使用getter/setter": "",
+      "accessor-pairs": 2,
+      "对象访问符的位置，换行的时候在行首还是行尾": "",
+      "dot-location": [
+        2,
+        "property"
+      ],
+      "禁止不必要的嵌套块": "",
+      "no-lone-blocks": 2,
+      "禁止标签声明": "",
+      "no-labels": 2,
+      "禁止扩展native对象": "",
+      "no-extend-native": 2,
+      "禁止省略浮点数中的0 .5 3.": "",
+      "no-floating-decimal": 2,
+      "禁止在循环中使用函数（如果没有引用外部变量不形成闭包就可以）": "",
+      "no-loop-func": 2,
+      "禁止使用new Function": "",
+      "no-new-func": 2,
+      "不能比较自身": "",
+      "no-self-compare": 2,
+      "禁止使用逗号运算符": "",
+      "no-sequences": 2,
+      "禁止抛出字面量错误 throw error;": "",
+      "no-throw-literal": 2,
+      "return 语句中不能有赋值表达式": "",
+      "no-return-assign": [
+        2,
+        "always"
+      ],
+      "禁止重复声明变量": "",
+      "no-redeclare": [
+        2,
+        {
+          "builtinGlobals": true
+        }
+      ],
+      "禁止无用的表达式": "",
+      "no-unused-expressions": [
+        2,
+        {
+          "allowShortCircuit": true,
+          "allowTernary": true
+        }
+      ],
+      "禁止不必要的call和apply": "",
+      "no-useless-call": 2,
+      "no-useless-concat": 2,
+      "禁用void操作符": "",
+      "no-void": 2,
+      "禁用with": "",
+      "no-with": 2,
+      "中缀操作符周围要不要有空格": "",
+      "space-infix-ops": 2,
+      "jsdoc规则": "",
+      "valid-jsdoc": [
+        2,
+        {
+          "requireParamDescription": true,
+          "requireReturnDescription": true
+        }
+      ],
+      "不能有警告备注": "",
+      "no-warning-comments": [
+        2,
+        {
+          "terms": [
+            "todo",
+            "fixme",
+            "any other term"
+          ],
+          "location": "anywhere"
+        }
+      ],
+      "必须使用 if(){} 中的{}": "",
+      "curly": 1,
+      "no-duplicate-imports": 1
+    },
+    "parserOptions": {
+      "parser": "babel-eslint"
+    }
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ]
+}
