@@ -71,7 +71,7 @@
 
 - Servlet 生命周期
 
-## thinking-in-Spring
+## [thinking-in-Spring](https://github.com/yihonglei/thinking-in-spring)
 
 - IOC
 - AOP
@@ -142,7 +142,7 @@
 - 分布式锁实现原理
 - 部署方式
 
-## daisy-framework [实战项目](https://github.com/yihonglei/daisy-framework)
+## [daisy-framework实战项目](https://github.com/yihonglei/daisy-framework)
 
 含Spring体系、MyBatis、MySql、消息中间件、缓存中间件、分布式事务、分布式锁、
 
