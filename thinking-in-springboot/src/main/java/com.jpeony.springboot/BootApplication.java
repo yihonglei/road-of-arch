@@ -3,6 +3,7 @@ package com.jpeony.springboot;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.web.servlet.DispatcherServlet;
 
 /**
  * Spring Boot启动类
