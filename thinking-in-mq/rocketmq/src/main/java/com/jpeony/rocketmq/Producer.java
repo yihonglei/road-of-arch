@@ -38,7 +38,7 @@ public class Producer {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            TimeUnit.MILLISECONDS.sleep(100000);
+            TimeUnit.MILLISECONDS.sleep(1000);
         }
 
         /*
