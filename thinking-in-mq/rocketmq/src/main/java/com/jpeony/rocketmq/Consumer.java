@@ -1,13 +1,13 @@
 package com.jpeony.rocketmq;
 
-import java.util.List;
-
 import org.apache.rocketmq.client.consumer.DefaultMQPushConsumer;
 import org.apache.rocketmq.client.consumer.listener.ConsumeConcurrentlyContext;
 import org.apache.rocketmq.client.consumer.listener.ConsumeConcurrentlyStatus;
 import org.apache.rocketmq.client.consumer.listener.MessageListenerConcurrently;
 import org.apache.rocketmq.client.exception.MQClientException;
 import org.apache.rocketmq.common.message.MessageExt;
+
+import java.util.List;
 
 /**
  * 消费者
@@ -16,47 +16,27 @@ import org.apache.rocketmq.common.message.MessageExt;
  */
 public class Consumer {
     public static void main(String[] args) throws MQClientException {
-        DefaultMQPushConsumer consumer = new DefaultMQPushConsumer("ConsumerGroupName");
-        consumer.setNamesrvAddr("127.0.0.1:9876");
-        consumer.setInstanceName("Consumer");
+        // 初始化 Consumer，并设置 consumer group name
+        DefaultMQPushConsumer consumer = new DefaultMQPushConsumer("test-consumer-groupName");
+        // 设置 NameServer 地址
+        consumer.setNamesrvAddr("10.6.202.110:9876;10.6.202.111:9876");
 
-        /*
-         * Rocket默认开启了VIP通道，VIP通道端口为10911-2=10909。
-         * 而broker默认端口为10911，找不到10909服务，则报connect to <：10909> failed。
-         * 设置为false，关闭VIP通道。
-         */
-        consumer.setVipChannelEnabled(false);
+        consumer.setInstanceName("test_consumer");
 
-        /*
-         * 订阅指定topic下tags分别等于TagA 或 TagB 或TagC
-         */
-        consumer.subscribe("TopicTest", "TagA || TagB || TagC");
-        consumer.registerMessageListener(new MessageListenerConcurrently() {
-            @Override
-            public ConsumeConcurrentlyStatus consumeMessage(
-                    List<MessageExt> msgs, ConsumeConcurrentlyContext context) {
-                System.out.println(Thread.currentThread().getName() + " Receive New Messages: " + msgs.size());
+        // 订阅一个或多个 topic，并指定 tag 过滤条件，这里指定 * 表示接收所有 tag 的消息【实际业务建议只订阅一个 topic】
+        consumer.subscribe("test_topic", "*"); // 指定 tag 过滤 tag_a || tag_b || tag_c
 
-                // 执行topic的消费逻辑
-                MessageExt msg = msgs.get(0);
-                if ("TopicTest".equals(msg.getTopic())) {
-                    if (msg.getTags() != null && "TagA".equals(msg.getTags())) {
-                        // 执行TagA消费
-                        System.out.println("TagA========" + new String(msg.getBody()));
-                    } else if (msg.getTags() != null && "TagB".equals(msg.getTags())) {
-                        // 执行TagB消费
-                        System.out.println("TagB========" + new String(msg.getBody()));
-                    } else if (msg.getTags() != null && "TagC".equals(msg.getTags())) {
-                        // 执行TagC消费
-                        System.out.println("TagC========" + new String(msg.getBody()));
-                    }
-                }
-
-                return ConsumeConcurrentlyStatus.CONSUME_SUCCESS;
+        // 注册回调接口来处理从 Broker 中收到的消息
+        consumer.registerMessageListener((MessageListenerConcurrently) (msgs, context) -> {
+            for (MessageExt msg : msgs) {
+                String messageExtStr = new String(msg.getBody());
+                System.out.printf("%s Receive New Messages: %s %n", Thread.currentThread().getName(), messageExtStr);
             }
+            // 返回消息消费状态，ConsumeConcurrentlyStatus.CONSUME_SUCCESS 为消费成功
+            return ConsumeConcurrentlyStatus.CONSUME_SUCCESS;
         });
-
+        // 启动 Consumer
         consumer.start();
-        System.out.println("ConsumerStarted");
+        System.out.println("Consumer Started!");
     }
 }
