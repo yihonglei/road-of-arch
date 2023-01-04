@@ -16,5 +16,5 @@ public interface UserMapper {
 
     List<User> queryAllUser();
 
-    User queryUserById(Long id);
+    User queryUserById(int id);
 }

@@ -15,4 +15,10 @@ public class UserServiceImpl implements UserService {
     public Long addUser(User user) {
         return userMapper.addUser(user);
     }
+
+    @Override
+    public User queryUserById(int id) {
+        return userMapper.queryUserById(id);
+    }
+
 }

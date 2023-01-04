@@ -5,4 +5,6 @@ import com.jpeony.sharding.jdbc.pojo.User;
 
 public interface UserService {
     Long addUser(User user);
+
+    User queryUserById(int id);
 }

@@ -1,6 +1,7 @@
 package com.jpeony.sharding.jdbc.service;
 
 
+import com.alibaba.fastjson.JSON;
 import com.jpeony.sharding.jdbc.ApiApplication;
 import com.jpeony.sharding.jdbc.pojo.User;
 import org.junit.Test;
@@ -25,5 +26,11 @@ public class UserServiceTest {
             userService.addUser(user);
             System.out.println("插入用户成功，uid=" + user.getId());
         }
+    }
+
+    @Test
+    public void testQueryUserById() {
+        User user = userService.queryUserById(1);
+        System.out.println("查询用户 = " + JSON.toJSONString(user));
     }
 }
