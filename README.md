@@ -7,7 +7,7 @@
 
 计算机组成原理、计算机网络、操作系统、编译原理等。
 
-# 二 数据结构与算法([thinking-in-algorithms](https://github.com/yihonglei/thinking-in-algorithms))
+# 二、数据结构与算法([thinking-in-algorithms](https://github.com/yihonglei/thinking-in-algorithms))
 
 ### 1、复杂度分析
 
@@ -52,7 +52,7 @@
 - 概念与统计
 - 算法技巧
 
-# 三 Java([jdk-source-code-reading](https://github.com/yihonglei/jdk-source-code-reading))
+# 三、Java([jdk-source-code-reading](https://github.com/yihonglei/jdk-source-code-reading))
 
 - IO
 - NIO
@@ -65,7 +65,7 @@
 - Java8
 - JVM
 
-# 四 Java 框架
+# 四、Java 框架
 
 ## thinking-in-servlet
 
@@ -148,7 +148,7 @@
 
 分库分表、高并发、高性能、高扩展、稳定性，数据分析等经典方案实战大杂烩。
 
-# 五 MySql(thinking-in-mysql)
+# 五、MySql(thinking-in-mysql)
 
 - 基础
 - 事务隔离
@@ -160,7 +160,7 @@
 - 分库分表
 - 性能调优
 
-# 六 缓存中间件(thinking-in-nosql)
+# 六、缓存中间件(thinking-in-nosql)
 
 Redis、MongoDB、Memcached等。
 
@@ -183,7 +183,7 @@ Redis、MongoDB、Memcached等。
 - Redis 分布式锁
 - Redis 和 Memcached 区别
 
-# 七 消息中间件(thinking-in-message)
+# 七、消息中间件(thinking-in-message)
 
 RocketMQ、Kafka、RabbitMQ等。
 
@@ -208,7 +208,7 @@ RocketMQ、Kafka、RabbitMQ等。
 - RocketMQ 存储结构
 - RocketMQ 高性能原因
 
-# 八 搜索引擎(thinking-in-elasticsearch)
+# 八、搜索引擎(thinking-in-elasticsearch)
 
 - ES 读写底层原理
 - ES Lucene 原理
@@ -216,7 +216,7 @@ RocketMQ、Kafka、RabbitMQ等。
 - ES 倒排索引
 - ES 集群部署、索引数据量、索引分片
 
-# 九 设计架构([daisy-framework](https://github.com/yihonglei/daisy-framework))
+# 九、设计架构([daisy-framework](https://github.com/yihonglei/daisy-framework))
 
 分布式架构，微服务架构，高可用架构，高并发架构，高性能架构等，系统监控以及运维部署等项目实战。
 
@@ -348,7 +348,7 @@ RocketMQ、Kafka、RabbitMQ等。
 - 秒杀设计
 - 工作流
 
-# 十 部署运维
+# 十、部署运维
 
 - Linux
 - git
@@ -360,7 +360,7 @@ RocketMQ、Kafka、RabbitMQ等。
 - Docker
 - K8s
 
-# 十一 大数据核(thinking-in-bigdata)
+# 十一、大数据核(thinking-in-bigdata)
 
 ## 系统集成
 
