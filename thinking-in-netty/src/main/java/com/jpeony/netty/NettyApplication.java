@@ -10,10 +10,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @author yihonglei
  */
 @SpringBootApplication(scanBasePackages = "com.jpeony.netty")
-public class ApiApplication implements CommandLineRunner {
+public class NettyApplication implements CommandLineRunner {
 
     public static void main(String[] args) {
-        SpringApplication.run(ApiApplication.class);
+        SpringApplication.run(NettyApplication.class);
     }
 
     @Override
