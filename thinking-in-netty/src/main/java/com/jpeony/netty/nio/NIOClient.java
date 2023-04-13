@@ -26,17 +26,20 @@ public class NIOClient {
 
         while (true) {
             selector.select();
-            Set<SelectionKey> selectionKeys = selector.selectedKeys();
-            Iterator<SelectionKey> iterator = selectionKeys.iterator();
-            while (iterator.hasNext()) {
-                SelectionKey key = iterator.next();
-                iterator.remove();
-                if (key.isConnectable()) {
-                    handleConnect(key);
-                } else if (key.isReadable()) {
-                    handleRead(key);
-                }
+            Set<SelectionKey> selected = selector.selectedKeys();
+            Iterator<SelectionKey> it = selected.iterator();
+            while (it.hasNext()) {
+                dispatch((SelectionKey) it.next());
+                selected.clear();
             }
+        }
+    }
+
+    private static void dispatch(SelectionKey key) throws IOException {
+        if (key.isConnectable()) {
+            handleConnect(key);
+        } else if (key.isReadable()) {
+            handleRead(key);
         }
     }
 

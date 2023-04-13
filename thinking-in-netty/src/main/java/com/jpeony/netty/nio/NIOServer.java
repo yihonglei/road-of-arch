@@ -27,27 +27,32 @@ public class NIOServer {
         selector = Selector.open();
 
         // 4、将 ServerSocketChannel 注册到 Selector，监听 SelectionKey.OP_ACCEPT
-        serverSocketChannel.register(selector, SelectionKey.OP_ACCEPT);
+        SelectionKey sk = serverSocketChannel.register(selector, SelectionKey.OP_ACCEPT);
+        // sk.attach(new Acceptor());
 
         // 5、轮询就绪的 key
         while (true) {
             // 当注册事件到达时，方法返回，否则该方法会一直阻塞
             selector.select();
-            Set<SelectionKey> selectionKeys = selector.selectedKeys();
-            Iterator<SelectionKey> iterator = selectionKeys.iterator();
-            while (iterator.hasNext()) {
-                SelectionKey key = iterator.next();
-                iterator.remove();
-                // 6、handleAccept 处理新的客户端接入
-                if (key.isAcceptable()) {
-                    handleAccept(key);
-                } else if (key.isReadable()) {
-                    // 8、handleRead 异步读请求
-                    handleRead(key);
-                }
+            Set<SelectionKey> selected = selector.selectedKeys();
+            Iterator<SelectionKey> it = selected.iterator();
+            while (it.hasNext()) {
+                dispatch((SelectionKey) it.next());
+                selected.clear();
             }
         }
     }
+
+    private static void dispatch(SelectionKey key) throws IOException {
+        // 6、handleAccept 处理新的客户端接入
+        if (key.isAcceptable()) {
+            handleAccept(key);
+        } else if (key.isReadable()) {
+            // 8、handleRead 异步读请求
+            handleRead(key);
+        }
+    }
+
 
     private static void handleAccept(SelectionKey key) throws IOException {
         ServerSocketChannel server = (ServerSocketChannel) key.channel();
