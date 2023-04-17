@@ -17,11 +17,10 @@ public class NIOServer {
     public static void main(String[] args) throws IOException {
         // 1、打开 ServerSocketChannel
         ServerSocketChannel serverSocketChannel = ServerSocketChannel.open();
-        serverSocketChannel.configureBlocking(false);
 
         // 2、绑定监听地址 InetSocketAddress
-        ServerSocket serverSocket = serverSocketChannel.socket();
-        serverSocket.bind(new InetSocketAddress(8989));
+        serverSocketChannel.socket().bind(new InetSocketAddress(8989));
+        serverSocketChannel.configureBlocking(false);
 
         // 3、创建 Selector，启动线程
         selector = Selector.open();
@@ -31,6 +30,7 @@ public class NIOServer {
         // sk.attach(new Acceptor());
 
         // 5、轮询就绪的 key
+        // 多路复用器在线程 run 方法的无限循环体内轮询准备就绪的 Key，通常情况下需要设置一个退出状态检测位，用于优雅停机
         while (true) {
             // 当注册事件到达时，方法返回，否则该方法会一直阻塞
             selector.select();
@@ -62,10 +62,11 @@ public class NIOServer {
         String msg = "Hello Client";
         socketChannel.write(ByteBuffer.wrap(msg.getBytes()));
 
-        // 7、向 Selector 注册监听读操作
+        // 7、新接入的客户端 向 Selector 注册监听读操作
         socketChannel.register(selector, SelectionKey.OP_READ);
     }
 
+    // 异步读取客户端请求消息到服务端缓冲区
     private static void handleRead(SelectionKey key) throws IOException {
         SocketChannel channel = (SocketChannel) key.channel();
 
