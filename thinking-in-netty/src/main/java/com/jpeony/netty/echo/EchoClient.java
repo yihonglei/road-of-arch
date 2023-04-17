@@ -3,6 +3,7 @@ package com.jpeony.netty.echo;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
+import io.netty.channel.ChannelOption;
 import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
@@ -43,6 +44,8 @@ public class EchoClient {
             b.group(group)
                     // 适用于 NIO 传输的 Channel 类型
                     .channel(NioSocketChannel.class)
+                    // 设置连接超时时间
+                    .option(ChannelOption.CONNECT_TIMEOUT_MILLIS, 3000)
                     // 设置服务器的 InetSocketAddress
                     .remoteAddress(new InetSocketAddress(host, port))
                     // 在创建 Channel 时，向 ChannelPipeline 中添加一个 EchoClientHandler 实例
