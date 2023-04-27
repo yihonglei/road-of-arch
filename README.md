@@ -19,13 +19,13 @@
 
 # 编程语言
 
-[thinking-in-ass](https://github.com/yihonglei/road-of-arch/tree/master/)
+[thinking-in-ass](https://github.com/yihonglei/road-of-arch/tree/master/thinking-in-ass)
 
-[thinking-in-c](https://github.com/yihonglei/road-of-arch/tree/master/)
+[thinking-in-c](https://github.com/yihonglei/road-of-arch/tree/master/thinking-in-c)
 
-[thinking-in-c++](https://github.com/yihonglei/road-of-arch/tree/master/)
+[thinking-in-c++](https://github.com/yihonglei/road-of-arch/tree/master/thinking-in-c++)
 
-[thinking-in-python](https://github.com/yihonglei/road-of-arch/tree/master/)
+[thinking-in-python](https://github.com/yihonglei/road-of-arch/tree/master/thinking-in-python)
 
 - 内容：编程语言基础知识
 
@@ -37,7 +37,7 @@
 
 # Java 框架
 
-[thinking-in-servlet](https://github.com/yihonglei/road-of-arch/tree/master/)
+[thinking-in-servlet](https://github.com/yihonglei/road-of-arch/tree/master/thinking-in-servlet)
 
 [thinking-in-spring](https://github.com/yihonglei/thinking-in-spring)
 
@@ -127,5 +127,9 @@
 
 # 云计算
 
+- 内容：SAAS、PAAS、IAAS...
+
 # 人工智能
+
+- 内容：机器学习...
 
