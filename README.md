@@ -41,81 +41,81 @@
 
 [thinking-in-spring](https://github.com/yihonglei/thinking-in-spring)
 
-[thinking-in-springmvc](https://github.com/yihonglei/road-of-arch/tree/master/)
+[thinking-in-springmvc](https://github.com/yihonglei/road-of-arch/tree/master/thinking-in-springmvc)
 
-[thinking-in-springboot](https://github.com/yihonglei/road-of-arch/tree/master/)
+[thinking-in-springboot](https://github.com/yihonglei/road-of-arch/tree/master/thinking-in-springboot)
 
-[thinking-in-springcloud](https://github.com/yihonglei/road-of-arch/tree/master/)
+[thinking-in-springcloud](https://github.com/yihonglei/road-of-arch/tree/master/thinking-in-springcloud)
 
-[thinking-in-dubbo](https://github.com/yihonglei/road-of-arch/tree/master/)
+[thinking-in-dubbo](https://github.com/yihonglei/road-of-arch/tree/master/thinking-in-dubbo)
 
-[thinking-in-mybatis](https://github.com/yihonglei/road-of-arch/tree/master/)
+[thinking-in-mybatis](https://github.com/yihonglei/road-of-arch/tree/master/thinking-in-mybatis)
 
-[thinking-in-netty](https://github.com/yihonglei/road-of-arch/tree/master/)
+[thinking-in-netty](https://github.com/yihonglei/road-of-arch/tree/master/thinking-in-netty)
 
-[thinking-in-zookeeper](https://github.com/yihonglei/road-of-arch/tree/master/)
+[thinking-in-zookeeper](https://github.com/yihonglei/road-of-arch/tree/master/thinking-in-zookeeper)
 
-[thinking-in-elastic-job](https://github.com/yihonglei/road-of-arch/tree/master/)
+[thinking-in-elastic-job](https://github.com/yihonglei/road-of-arch/tree/master/thinking-in-elastic-job)
 
 # 数据库
 
-[thinking-in-mysql](https://github.com/yihonglei/road-of-arch/tree/master/)
+[thinking-in-mysql](https://github.com/yihonglei/road-of-arch/tree/master/thinking-in-mysql)
 
-[thinking-in-shardingsphere-jdbc](https://github.com/yihonglei/road-of-arch/tree/master/)
+[thinking-in-shardingsphere-jdbc](https://github.com/yihonglei/road-of-arch/tree/master/thinking-in-shardingsphere-jdbc)
 
-[thingking-in-shardingsphere-proxy](https://github.com/yihonglei/road-of-arch/tree/master/)
+[thinking-in-shardingsphere-proxy](https://github.com/yihonglei/road-of-arch/tree/master/thinking-in-shardingsphere-proxy)
 
-[thinking-in-mycat](https://github.com/yihonglei/road-of-arch/tree/master/)
+[thinking-in-mycat](https://github.com/yihonglei/road-of-arch/tree/master/thinking-in-mycat)
 
 # 缓存中间件
 
-[thinking-in-nosql](https://github.com/yihonglei/road-of-arch/tree/master/)
+[thinking-in-nosql](https://github.com/yihonglei/road-of-arch/tree/master/thinking-in-nosql)
 
 - 内容：redis、memcached、mongodb、elasticsearch
 
 # 消息中间件
 
-[thinking-in-mq](https://github.com/yihonglei/road-of-arch/tree/master/)
+[thinking-in-mq](https://github.com/yihonglei/road-of-arch/tree/master/thinking-in-mq)
 
 - 内容：rocketmq、kafka
 
 # 大数据
 
-[thinking-in-bigdata](https://github.com/yihonglei/road-of-arch/tree/master/)
+[thinking-in-bigdata](https://github.com/yihonglei/road-of-arch/tree/master/thinking-in-bigdata)
 
 - 内容：系统集成、离线计算、实时计算、通用架构、通用流程、数仓架构
 
 # 部署运维
 
-[thinking-in-devops](https://github.com/yihonglei/road-of-arch/tree/master/)
+[thinking-in-devops](https://github.com/yihonglei/road-of-arch/tree/master/thinking-in-devops)
 
 - 内容：maven、git、sonar、Jenkins、Linux、Tomcat、Nginx、Docker、k8s、Devops、版本发布
 
 # 运维监控
 
-[thinking-in-monitor](https://github.com/yihonglei/road-of-arch/tree/master/)
+[thinking-in-monitor](https://github.com/yihonglei/road-of-arch/tree/master/thinking-in-monitor)
 
 - 内容：指标监控、日志监控、链路监控、监控告警
 
 # 测试
 
-[thinking-in-test](https://github.com/yihonglei/road-of-arch/tree/master/)
+[thinking-in-test](https://github.com/yihonglei/road-of-arch/tree/master/thinking-in-test)
 
 - 内容：基础理论、JMeter、Apache Bench（AB）、LoadRunner
 
 # 前端
 
-[thingking-in-vue](https://github.com/yihonglei/road-of-arch/tree/master/)
+[thinking-in-vue](https://github.com/yihonglei/road-of-arch/tree/master/thinking-in-vue)
 
-[thingking-in-android](https://github.com/yihonglei/road-of-arch/tree/master/)
+[thinking-in-android](https://github.com/yihonglei/road-of-arch/tree/master/thinking-in-android)
 
-[thingking-in-ios](https://github.com/yihonglei/road-of-arch/tree/master/)
+[thinking-in-ios](https://github.com/yihonglei/road-of-arch/tree/master/thinking-in-ios)
 
 - 内容：基础理论、基础代码
 
 # 产品
 
-[thinking-in-product](https://github.com/yihonglei/road-of-arch/tree/master/)
+[thinking-in-product](https://github.com/yihonglei/road-of-arch/tree/master/thinking-in-product)
 
 - 内容：基础理论、UI、prd
 
@@ -124,4 +124,8 @@
 [daisy-framework](https://github.com/yihonglei/daisy-framework)
 
 - 内容：指导思想、架构基础、分布式架构、微服务架构、高可用架构、高并发架构、高性能架构、可扩展架构、安全性架构、中台架构
+
+# 云计算
+
+# 人工智能
 
