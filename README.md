@@ -85,11 +85,11 @@
 
 - 内容：系统集成、离线计算、实时计算、通用架构、通用流程、数仓架构
 
-# 部署运维
+# 运维部署
 
 [thinking-in-devops](https://github.com/yihonglei/road-of-arch/tree/master/thinking-in-devops)
 
-- 内容：maven、git、sonar、Jenkins、Linux、Tomcat、Nginx、Docker、k8s、Devops、版本发布
+- 内容：Linux、maven、git、sonar、Jenkins、Tomcat、Nginx、Docker、k8s、Devops、版本发布
 
 # 运维监控
 
