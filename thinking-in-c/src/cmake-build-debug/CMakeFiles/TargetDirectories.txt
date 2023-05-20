@@ -1,0 +1,3 @@
+/Users/hongqi/Documents/jpeony/road-of-arch/thinking-in-c/src/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/hongqi/Documents/jpeony/road-of-arch/thinking-in-c/src/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/hongqi/Documents/jpeony/road-of-arch/thinking-in-c/src/cmake-build-debug/CMakeFiles/Thinking-in-C.dir
