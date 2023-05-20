@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.16)
-project(Thinking-in-C C)
+project(thinking-in-c C)
 
 set(CMAKE_C_STANDARD 99)
 
-add_executable(Thinking-in-C main.c)
+add_executable(thinking-in-c main.c)

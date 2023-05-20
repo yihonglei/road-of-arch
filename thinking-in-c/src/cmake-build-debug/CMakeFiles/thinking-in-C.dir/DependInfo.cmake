@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/Users/hongqi/Documents/jpeony/road-of-arch/thinking-in-c/src/main.c" "/Users/hongqi/Documents/jpeony/road-of-arch/thinking-in-c/src/cmake-build-debug/CMakeFiles/Thinking-in-C.dir/main.c.o"
+  "/Users/hongqi/Documents/jpeony/road-of-arch/thinking-in-c/src/main.c" "/Users/hongqi/Documents/jpeony/road-of-arch/thinking-in-c/src/cmake-build-debug/CMakeFiles/thinking-in-c.dir/main.c.o"
   )
 set(CMAKE_C_COMPILER_ID "AppleClang")
 

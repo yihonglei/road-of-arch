@@ -139,7 +139,7 @@ CMAKE_PROJECT_DESCRIPTION:STATIC=
 CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=Thinking-in-C
+CMAKE_PROJECT_NAME:STATIC=thinking-in-c
 
 //Path to a program.
 CMAKE_RANLIB:FILEPATH=/Library/Developer/CommandLineTools/usr/bin/ranlib
@@ -207,10 +207,10 @@ CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 ProcessorCount_cmd_sysctl:FILEPATH=/usr/sbin/sysctl
 
 //Value Computed by CMake
-Thinking-in-C_BINARY_DIR:STATIC=/Users/hongqi/Documents/jpeony/road-of-arch/thinking-in-c/src/cmake-build-debug
+thinking-in-c_BINARY_DIR:STATIC=/Users/hongqi/Documents/jpeony/road-of-arch/thinking-in-c/src/cmake-build-debug
 
 //Value Computed by CMake
-Thinking-in-C_SOURCE_DIR:STATIC=/Users/hongqi/Documents/jpeony/road-of-arch/thinking-in-c/src
+thinking-in-c_SOURCE_DIR:STATIC=/Users/hongqi/Documents/jpeony/road-of-arch/thinking-in-c/src
 
 
 ########################

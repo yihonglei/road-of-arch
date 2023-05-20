@@ -2,7 +2,7 @@
 <CodeBlocks_project_file>
 	<FileVersion major="1" minor="6"/>
 	<Project>
-		<Option title="Thinking-in-C"/>
+		<Option title="thinking-in-c"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="gcc"/>
 		<Option virtualFolders="CMake Files\;"/>
@@ -37,8 +37,8 @@
 					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/hongqi/Documents/jpeony/road-of-arch/thinking-in-c/src/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="Thinking-in-C">
-				<Option output="/Users/hongqi/Documents/jpeony/road-of-arch/thinking-in-c/src/cmake-build-debug/Thinking-in-C" prefix_auto="0" extension_auto="0"/>
+			<Target title="thinking-in-c">
+				<Option output="/Users/hongqi/Documents/jpeony/road-of-arch/thinking-in-c/src/cmake-build-debug/thinking-in-c" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/Users/hongqi/Documents/jpeony/road-of-arch/thinking-in-c/src/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
@@ -52,14 +52,14 @@
 					<Add directory="/Library/Frameworks"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/Users/hongqi/Documents/jpeony/road-of-arch/thinking-in-c/src/cmake-build-debug/Makefile&quot;  VERBOSE=1 Thinking-in-C"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/hongqi/Documents/jpeony/road-of-arch/thinking-in-c/src/cmake-build-debug/Makefile&quot;  VERBOSE=1 thinking-in-c"/>
 					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/hongqi/Documents/jpeony/road-of-arch/thinking-in-c/src/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -j4 -f &quot;/Users/hongqi/Documents/jpeony/road-of-arch/thinking-in-c/src/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/hongqi/Documents/jpeony/road-of-arch/thinking-in-c/src/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="Thinking-in-C/fast">
-				<Option output="/Users/hongqi/Documents/jpeony/road-of-arch/thinking-in-c/src/cmake-build-debug/Thinking-in-C" prefix_auto="0" extension_auto="0"/>
+			<Target title="thinking-in-c/fast">
+				<Option output="/Users/hongqi/Documents/jpeony/road-of-arch/thinking-in-c/src/cmake-build-debug/thinking-in-c" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/Users/hongqi/Documents/jpeony/road-of-arch/thinking-in-c/src/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
@@ -73,7 +73,7 @@
 					<Add directory="/Library/Frameworks"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/Users/hongqi/Documents/jpeony/road-of-arch/thinking-in-c/src/cmake-build-debug/Makefile&quot;  VERBOSE=1 Thinking-in-C/fast"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/hongqi/Documents/jpeony/road-of-arch/thinking-in-c/src/cmake-build-debug/Makefile&quot;  VERBOSE=1 thinking-in-c/fast"/>
 					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/hongqi/Documents/jpeony/road-of-arch/thinking-in-c/src/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -j4 -f &quot;/Users/hongqi/Documents/jpeony/road-of-arch/thinking-in-c/src/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/hongqi/Documents/jpeony/road-of-arch/thinking-in-c/src/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
@@ -81,7 +81,7 @@
 			</Target>
 		</Build>
 		<Unit filename="/Users/hongqi/Documents/jpeony/road-of-arch/thinking-in-c/src/main.c">
-			<Option target="Thinking-in-C"/>
+			<Option target="thinking-in-c"/>
 		</Unit>
 		<Unit filename="/Users/hongqi/Documents/jpeony/road-of-arch/thinking-in-c/src/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
