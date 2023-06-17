@@ -18,3 +18,9 @@ NashornProfile.txt
 /src/utils/LogCompilation/target/
 /.project/
 /.settings/
+/.project
+/.classpath
+/.cproject
+/compile_commands.json
+/.cache
+cmake-build-debug
