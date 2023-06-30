@@ -15,34 +15,46 @@ import java.net.Socket;
  */
 public class SocketServer {
     public static void main(String[] args) throws IOException {
-        ServerSocket server = new ServerSocket(8989);
-        System.out.println("Listening for connection on port 8989 ......");
-        while (true) {
-            // 阻塞方法，等待客户端连接
-            final Socket client = server.accept();
-            // handler(client);
-            // 可以使用多线程处理，缺陷就是并发量高时会创建大量线程，系统线程开启数量有限，系统资源不够崩掉，
-            // 也可以优化为线程池，但是还是解决不了大流量访问的问题，因为线程还是一直要占用到响应结束，空闲时间不能处理业务。
-            new Thread(() -> {
-                try {
-                    handler(client);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }).start();
+        try {
+            ServerSocket server = new ServerSocket(8989);
+            System.out.println("Listening for connection on port 8989 ......");
+            while (true) {
+                Socket socket = server.accept();
+                new Thread(new Handler(socket)).start();
+            }
+        } catch (IOException ex) {
+            // ignore
         }
     }
 
-    private static void handler(Socket client) throws IOException {
-        byte[] bytes = new byte[1024];
+    static class Handler implements Runnable {
+        final Socket socket;
 
-        // Read request from the client socket
-        int read = client.getInputStream().read(bytes);
-        if (read != -1) {
-            System.out.println("接收到客户端的数据：" + new String(bytes, 0, read));
+        Handler(Socket s) {
+            socket = s;
         }
-        // Send response to the client
-        client.getOutputStream().write("Hello Client".getBytes());
-        client.getOutputStream().flush();
+
+        @Override
+        public void run() {
+            try {
+                byte[] input = new byte[1024];
+
+                // Read request from the client socket
+                socket.getInputStream().read(input);
+                // process
+                byte[] output = process(input);
+                // Send response to the client
+                socket.getOutputStream().write(output);
+            } catch (IOException ex) {
+                // ignore
+            }
+        }
+
+        private byte[] process(byte[] cmd) {
+            System.out.println("接收到客户端的数据：" + new String(cmd, 0));
+
+            String outputStr = "Hello Client";
+            return outputStr.getBytes();
+        }
     }
 }
