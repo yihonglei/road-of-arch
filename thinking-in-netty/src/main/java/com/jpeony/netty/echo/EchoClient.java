@@ -37,32 +37,29 @@ public class EchoClient {
         EventLoopGroup group = new NioEventLoopGroup();
 
         try {
-            // 创建 Bootstrap
+            // 创建 Bootstrap 用于配置 Client 相关参数
             Bootstrap b = new Bootstrap();
 
-            // 指定 EventLoopGroup 以处理客户端事件，需要适用于 NIO 的实现。
+            // 链式调用
+            // 设置 group
             b.group(group)
-                    // 适用于 NIO 传输的 Channel 类型
+                    // 配置 Client 通道
                     .channel(NioSocketChannel.class)
+                    .option(ChannelOption.TCP_NODELAY, true)
                     // 设置连接超时时间
                     .option(ChannelOption.CONNECT_TIMEOUT_MILLIS, 3000)
                     // 设置服务器的 InetSocketAddress
                     .remoteAddress(new InetSocketAddress(host, port))
-                    // 在创建 Channel 时，向 ChannelPipeline 中添加一个 EchoClientHandler 实例
-                    .handler(new ChannelInitializer<SocketChannel>() {
-                        @Override
-                        protected void initChannel(SocketChannel ch) throws Exception {
-                            ch.pipeline().addLast(new EchoClientHandler());
-                        }
-                    });
+                    // 配置通道的 ChannelPipeline
+                    .handler(new EchoClientHandler());
 
-            // 连接到远程节点，阻塞等待直到连接完成
+            // 发起异步连接操作
             ChannelFuture f = b.connect().sync();
 
-            // 阻塞，直到 Channel 关闭
+            // 等待客户端链路关闭
             f.channel().closeFuture().sync();
         } finally {
-            // 关闭 EventLoopGroup 并且释放所有的资源
+            // 优雅退出，释放线程池资源
             group.shutdownGracefully().sync();
         }
     }

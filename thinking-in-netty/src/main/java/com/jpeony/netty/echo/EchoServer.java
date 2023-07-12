@@ -34,41 +34,34 @@ public class EchoServer {
      * 服务器端启动方法
      */
     private void start() throws Exception {
-        /*
-         * 创建 EventLoopGroup
-         * 1、bossGroup 线程组实际上是 Acceptor 线程池，负责处理客户端的 TCP 连接请求，如果系统只有一个服务端端口需要监听，
-         * 则建议 bossGroup 线程组线程数设置为 1；
-         * 2、workerGroup 是真正负责 I/O 读写操作的线程组，通过 ServerBootstrap 的 group 方法进行设置，用于后续的 Channel 绑定。
-         */
+        // 工作线程组，用于接收客户端的连接，但是不做任何具体业务处理，像老鸨一样负责接待客户，不具体服务客户
         EventLoopGroup bossGroup = new NioEventLoopGroup(1);
+        // 工作线程组，老鸨线程组会把任务丢给他，让工作线程组去服务客户
         EventLoopGroup workerGroup = new NioEventLoopGroup();
 
         try {
-            // 创建 ServerBootstrap
+            // 创建 ServerBootstrap 用于配置 Server 相关参数，并启动 Server
             ServerBootstrap b = new ServerBootstrap();
 
-            // 指定 EventLoopGroup 以处理服务端事件，需要适用于 NIO 的实现。
+            // 链式调用
+            // 配置 parentGroup 和 childGroup
             b.group(bossGroup, workerGroup)
-                    // 指定所使用的 NIO 传输 Channel
+                    // 配置 Server 通道
                     .channel(NioServerSocketChannel.class)
                     // 使用指定的端口设置套接字地址
                     .localAddress(new InetSocketAddress(port))
-                    // 添加一个 EchoServerHandler 到 Channel 的 ChannelPipeline
-                    .childHandler(new ChannelInitializer<SocketChannel>() {
-                        @Override
-                        protected void initChannel(SocketChannel ch) {
-                            // EchoServerHandler 被标注为 @Shareable，所以我们可以总是使用同样的实例
-                            ch.pipeline().addLast(new EchoServerHandler());
-                        }
-                    });
+                    // 配置通道的 ChannelPipeline
+                    .childHandler(new EchoServerHandler());
 
-            // 异步地绑定服务器，调用 sync() 方法阻塞直到绑定完成
+            // 绑定端口，并启动 Server，同时设置启动方式为同步
             ChannelFuture f = b.bind().sync();
 
-            // 绑定 Channel 的 CloseFuture，并且阻塞当前线程直到它完成
+            System.out.println("启动成功，在地址[" + f.channel().localAddress() + "]上等待客户端请求......");
+
+            // 等待服务端监听端口关闭
             f.channel().closeFuture().sync();
         } finally {
-            // 关闭 EventLoopGroup 并且释放所有的资源
+            // 优雅退出，释放线程池资源
             bossGroup.shutdownGracefully();
             workerGroup.shutdownGracefully();
         }

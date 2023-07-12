@@ -11,27 +11,18 @@ import io.netty.util.CharsetUtil;
  *
  * @author yihonglei
  */
-@ChannelHandler.Sharable //注解@ ChannelHandler.Sharable 表示一个 ChannelHandler 可以被多个 Channel 安全地共享。
-public class EchoServerHandler extends SimpleChannelInboundHandler {
+public class EchoServerHandler extends ChannelInboundHandlerAdapter {
 
     /**
      * 每个传入的消息都要调用该方法
      */
-//    @Override
-//    public void channelRead(ChannelHandlerContext ctx, Object msg) {
-//        // 将客户端发送过来的消息打印到控制台
-//        ByteBuf in = (ByteBuf) msg;
-//        System.out.println("server received msg from client：" + in.toString(CharsetUtil.UTF_8));
-//
-//        // 写一条消息响应给客户端
-//        ByteBuf responseMsg = Unpooled.wrappedBuffer(new String("Hello Client!").getBytes());
-//        ctx.write(responseMsg);
-//    }
     @Override
-    protected void channelRead0(ChannelHandlerContext ctx, Object msg) throws Exception {
+    public void channelRead(ChannelHandlerContext ctx, Object msg) {
         ByteBuf in = (ByteBuf) msg;
-        System.out.println("server received msg from client：" + in.toString(CharsetUtil.UTF_8));
-        ctx.writeAndFlush("from server msg");
+        System.out.println("服务器接收到消息：" + in.toString(CharsetUtil.UTF_8));
+
+        ByteBuf responseMsg = Unpooled.wrappedBuffer(new String("Hello Client!").getBytes());
+        ctx.write(responseMsg);
     }
 
     /**
@@ -39,8 +30,9 @@ public class EchoServerHandler extends SimpleChannelInboundHandler {
      */
     @Override
     public void channelReadComplete(ChannelHandlerContext ctx) {
-        // 将未决消息冲刷到远程节点，并且关闭该 Channel
-        ctx.writeAndFlush(Unpooled.EMPTY_BUFFER).addListener(ChannelFutureListener.CLOSE);
+        // 将读完的消息写入到缓冲区
+        ctx.writeAndFlush(Unpooled.EMPTY_BUFFER)
+                .addListener(ChannelFutureListener.CLOSE);
     }
 
     /**
@@ -48,10 +40,7 @@ public class EchoServerHandler extends SimpleChannelInboundHandler {
      */
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) {
-        // 打印异常栈跟踪信息
         cause.printStackTrace();
-
-        // 关闭该 Channel
         ctx.close();
     }
 }
