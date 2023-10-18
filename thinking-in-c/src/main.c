@@ -5,6 +5,7 @@
 #include "stdio.h"
 
 int main() {
-    printf("Hello, World!");
+    printf("请输入\n");
+
     return 0;
 }
