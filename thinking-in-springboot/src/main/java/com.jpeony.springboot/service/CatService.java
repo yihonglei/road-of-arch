@@ -7,7 +7,7 @@ import com.jpeony.springboot.domain.Cat;
  *
  * @author yihonglei
  */
-public interface ICatService {
+public interface CatService {
     /**
      * 保存数据
      */

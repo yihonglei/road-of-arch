@@ -3,7 +3,7 @@ package com.jpeony.springboot.service.impl;
 import com.jpeony.springboot.dao.CatDao;
 import com.jpeony.springboot.dao.CatRepository;
 import com.jpeony.springboot.domain.Cat;
-import com.jpeony.springboot.service.ICatService;
+import com.jpeony.springboot.service.CatService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -17,7 +17,7 @@ import javax.transaction.Transactional;
  * @author yihonglei
  */
 @Service
-public class CatServiceImpl implements ICatService {
+public class CatServiceImpl implements CatService {
     @Resource
     private CatRepository catRepository;
     @Resource

@@ -1,7 +1,7 @@
 package com.jpeony.springboot.controller;
 
 import com.jpeony.springboot.domain.Cat;
-import com.jpeony.springboot.service.ICatService;
+import com.jpeony.springboot.service.CatService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/cat")
 public class JpaController {
     @Autowired
-    private ICatService catService;
+    private CatService catService;
 
     /**
      * 保存数据

@@ -3,6 +3,6 @@ package com.jpeony.springboot.service;
 /**
  * @author yihonglei
  */
-public interface IHelloService {
+public interface HelloService {
     String sayHello(String name);
 }
