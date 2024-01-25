@@ -1,4 +1,4 @@
-package com.jpeony.rocketmq;
+package com.jpeony.rocketmq.four;
 
 import org.apache.rocketmq.client.exception.MQClientException;
 import org.apache.rocketmq.client.producer.DefaultMQProducer;
@@ -13,7 +13,7 @@ import java.util.concurrent.TimeUnit;
  *
  * @author yihonglei
  */
-public class Producer {
+public class ProducerTest {
     public static void main(String[] args) throws MQClientException, InterruptedException {
         // 初始化一个 Producer 并设置 Producer group name
         final DefaultMQProducer producer = new DefaultMQProducer("test-producer-groupName");

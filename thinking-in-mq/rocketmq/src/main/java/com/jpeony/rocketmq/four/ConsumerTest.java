@@ -1,4 +1,4 @@
-package com.jpeony.rocketmq;
+package com.jpeony.rocketmq.four;
 
 import org.apache.rocketmq.client.consumer.DefaultMQPushConsumer;
 import org.apache.rocketmq.client.consumer.listener.ConsumeConcurrentlyStatus;
@@ -11,7 +11,7 @@ import org.apache.rocketmq.common.message.MessageExt;
  *
  * @author yihonglei
  */
-public class Consumer {
+public class ConsumerTest {
     public static void main(String[] args) throws MQClientException {
         // 初始化 Consumer，并设置 consumer group name
         DefaultMQPushConsumer consumer = new DefaultMQPushConsumer("test-consumer-groupName");

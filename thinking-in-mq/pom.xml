@@ -32,12 +32,21 @@
                 <scope>test</scope>
             </dependency>
 
+            <!-- RocketMQ 4.X -->
             <dependency>
                 <groupId>org.apache.rocketmq</groupId>
                 <artifactId>rocketmq-client</artifactId>
                 <version>4.1.0-incubating</version>
             </dependency>
 
+            <!-- RocketMQ 5.X -->
+            <dependency>
+                <groupId>org.apache.rocketmq</groupId>
+                <artifactId>rocketmq-client-java</artifactId>
+                <version>5.0.4</version>
+            </dependency>
+
+            <!-- RabbitMQ 5.X -->
             <dependency>
                 <groupId>com.rabbitmq</groupId>
                 <artifactId>amqp-client</artifactId>
