@@ -1,24 +1,19 @@
-#include <stdio.h>
+#include <iostream>
 
-class Obj {
-public:
-    Obj() { puts("Obj()"); }
+using namespace std;
 
-    ~Obj() { puts("~Obj()"); }
-};
-
-void foo(int n) {
-    Obj obj;
-    if (n == 42)
-        throw "life, the universe and everything";
-}
+#define LENGTH 5;
+const int WIDTH = 5;
 
 int main() {
-    try {
-        foo(41);
-        foo(42);
-    }
-    catch (const char *s) {
-        puts(s);
-    }
+
+    double* pvalue  = NULL; // 初始化为 null 的指针
+    pvalue  = new double;   // 为变量请求内存
+
+    *pvalue = 29494.99;     // 在分配的地址存储值
+    cout << "Value of pvalue : " << *pvalue << endl;
+
+    delete pvalue;         // 释放内存
+
+    return 0;
 }
