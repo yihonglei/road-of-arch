@@ -5,4 +5,5 @@ set(CMAKE_C_STANDARD 99)
 
 add_executable(thinking-in-c
         src/main.c
-        src/hello.c)
+        src/hello.c
+        src/demo.c)
