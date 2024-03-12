@@ -3,4 +3,7 @@ project(thinking-in-cpp)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(thinking-in-cpp src/main.cpp)
+add_executable(thinking-in-cpp
+        src/main.cpp
+        src/MyClass.hpp
+        src/MyClass.cpp)
