@@ -1,4 +1,4 @@
-package com.jpeony.rocketmq.four;
+package com.jpeony.rocketmq;
 
 import org.apache.rocketmq.client.consumer.DefaultMQPushConsumer;
 import org.apache.rocketmq.client.consumer.listener.ConsumeConcurrentlyStatus;

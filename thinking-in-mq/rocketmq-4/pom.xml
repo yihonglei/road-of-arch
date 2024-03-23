@@ -9,19 +9,14 @@
         <groupId>com.jpeony</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-    <artifactId>rocketmq</artifactId>
+    <artifactId>rocketmq-4</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>rocketmq</name>
+    <name>rocketmq-4</name>
 
     <dependencies>
         <dependency>
             <groupId>org.apache.rocketmq</groupId>
             <artifactId>rocketmq-client</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.apache.rocketmq</groupId>
-            <artifactId>rocketmq-client-java</artifactId>
         </dependency>
     </dependencies>
 </project>

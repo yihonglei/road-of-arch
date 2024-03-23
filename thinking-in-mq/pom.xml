@@ -19,7 +19,8 @@
         <module>activemq</module>
         <module>kafka</module>
         <module>rabbitmq</module>
-        <module>rocketmq</module>
+        <module>rocketmq-4</module>
+        <module>rocketmq-5</module>
     </modules>
 
     <dependencyManagement>
@@ -45,12 +46,15 @@
                 <artifactId>rocketmq-client-java</artifactId>
                 <version>5.0.4</version>
             </dependency>
-
-            <!-- RabbitMQ 5.X -->
             <dependency>
                 <groupId>com.rabbitmq</groupId>
                 <artifactId>amqp-client</artifactId>
                 <version>5.6.0</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.rocketmq</groupId>
+                <artifactId>rocketmq-spring-boot-starter</artifactId>
+                <version>2.2.1</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

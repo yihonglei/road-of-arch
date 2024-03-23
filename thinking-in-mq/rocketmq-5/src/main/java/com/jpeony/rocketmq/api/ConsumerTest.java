@@ -1,21 +1,17 @@
-package com.jpeony.rocketmq.five;
+package com.jpeony.rocketmq.api;
 
 import org.apache.rocketmq.client.apis.ClientConfiguration;
-import org.apache.rocketmq.client.apis.ClientConfigurationBuilder;
 import org.apache.rocketmq.client.apis.ClientException;
 import org.apache.rocketmq.client.apis.ClientServiceProvider;
 import org.apache.rocketmq.client.apis.consumer.ConsumeResult;
 import org.apache.rocketmq.client.apis.consumer.FilterExpression;
 import org.apache.rocketmq.client.apis.consumer.FilterExpressionType;
 import org.apache.rocketmq.client.apis.consumer.PushConsumer;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.util.Collections;
 
 public class ConsumerTest {
-    private static final Logger logger = LoggerFactory.getLogger(ConsumerTest.class);
 
     public static void main(String[] args) throws ClientException, IOException, InterruptedException {
         final ClientServiceProvider provider = ClientServiceProvider.loadService();
@@ -41,7 +37,7 @@ public class ConsumerTest {
                 // 设置消费监听器
                 .setMessageListener(messageView -> {
                     // 处理消息并返回消费结果
-                    logger.info("Consume message successfully, messageId={}", messageView.getMessageId());
+                    System.out.println("Consume message successfully, messageId=" + messageView.getMessageId());
                     return ConsumeResult.SUCCESS;
                 })
                 .build();

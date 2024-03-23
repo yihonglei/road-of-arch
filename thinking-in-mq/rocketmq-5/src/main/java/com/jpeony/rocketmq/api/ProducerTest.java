@@ -1,4 +1,4 @@
-package com.jpeony.rocketmq.five;
+package com.jpeony.rocketmq.api;
 
 import org.apache.rocketmq.client.apis.ClientConfiguration;
 import org.apache.rocketmq.client.apis.ClientConfigurationBuilder;
@@ -7,13 +7,9 @@ import org.apache.rocketmq.client.apis.ClientServiceProvider;
 import org.apache.rocketmq.client.apis.message.Message;
 import org.apache.rocketmq.client.apis.producer.Producer;
 import org.apache.rocketmq.client.apis.producer.SendReceipt;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 
 public class ProducerTest {
-    private static final Logger logger = LoggerFactory.getLogger(ProducerTest.class);
-
     public static void main(String[] args) throws ClientException {
         // 接入点地址，需要设置成Proxy的地址和端口列表，一般是xxx:8081;xxx:8081
         String endpoint = "localhost:8081";
@@ -40,9 +36,9 @@ public class ProducerTest {
         try {
             // 发送消息，需要关注发送结果，并捕获失败等异常
             SendReceipt sendReceipt = producer.send(message);
-            logger.info("Send message successfully, messageId={}", sendReceipt.getMessageId());
+            System.out.println("Send message successfully, messageId=" + sendReceipt.getMessageId());
         } catch (ClientException e) {
-            logger.error("Failed to send message", e);
+            System.out.println("Failed to send message" + e.getMessage());
         }
         // producer.close();
     }
