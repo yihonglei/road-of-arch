@@ -19,8 +19,8 @@
         <module>activemq</module>
         <module>kafka</module>
         <module>rabbitmq</module>
-        <module>rocketmq-4</module>
-        <module>rocketmq-5</module>
+        <module>rocketmq4</module>
+        <module>rocketmq5</module>
     </modules>
 
     <dependencyManagement>
