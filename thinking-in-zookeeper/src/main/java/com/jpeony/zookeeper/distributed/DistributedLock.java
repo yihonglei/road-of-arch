@@ -33,7 +33,7 @@ public class DistributedLock implements Lock, Watcher {
     /**
      * 配置分布式锁
      *
-     * @param config   连接的url
+     * @param config   连接的 url
      * @param lockName 竞争资源
      */
     public DistributedLock(String config, String lockName) {
