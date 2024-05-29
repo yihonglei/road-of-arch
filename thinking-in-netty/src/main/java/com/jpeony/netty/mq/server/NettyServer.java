@@ -1,10 +1,16 @@
 package com.jpeony.netty.mq.server;
 
+import com.jpeony.netty.mq.common.NettyDecoder;
+import com.jpeony.netty.mq.common.NettyEncoder;
 import io.netty.bootstrap.ServerBootstrap;
+import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelOption;
+import io.netty.channel.ChannelPipeline;
 import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
+import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
+import io.netty.handler.timeout.IdleStateHandler;
 
 import java.net.InetSocketAddress;
 import java.util.concurrent.ThreadFactory;
@@ -46,12 +52,24 @@ public class NettyServer {
                 .option(ChannelOption.TCP_NODELAY, true)
                 .childOption(ChannelOption.SO_KEEPALIVE, true)
                 .localAddress(new InetSocketAddress("127.0.0.1", 8888))
-                .childHandler(new NettyServerChannelInitializer());
+                .childHandler(new ChannelInitializer<SocketChannel>() {
+                    @Override
+                    protected void initChannel(SocketChannel ch) {
+                        configChannel(ch);
+                    }
+                });
 
         try {
             serverBootstrap.bind().sync();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+    }
+
+    protected ChannelPipeline configChannel(SocketChannel ch) {
+        return ch.pipeline()
+                .addLast(new NettyEncoder())
+                .addLast(new NettyDecoder())
+                .addLast(new NettyServerHandler());
     }
 }
