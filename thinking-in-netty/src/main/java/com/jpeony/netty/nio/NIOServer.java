@@ -15,10 +15,10 @@ public class NIOServer {
     private static Selector selector;
 
     public static void main(String[] args) throws IOException {
-        // 1、打开 ServerSocketChannel
+        // 1、打开 ServerSocketChannel，用于监听客户端的连接，它是所有客户端连接的父通道
         ServerSocketChannel serverSocketChannel = ServerSocketChannel.open();
 
-        // 2、绑定监听地址 InetSocketAddress
+        // 2、绑定监听端口，设置客户端连接方式为非阻塞模式
         serverSocketChannel.socket().bind(new InetSocketAddress(8989));
         serverSocketChannel.configureBlocking(false);
 
@@ -62,15 +62,15 @@ public class NIOServer {
         String msg = "Hello Client";
         socketChannel.write(ByteBuffer.wrap(msg.getBytes()));
 
-        // 7、新接入的客户端 向 Selector 注册监听读操作
+        // 9、将新接入的客户端连接注册到多路复用器，监听读操作位，用来读取客户端发送的网络消息
         socketChannel.register(selector, SelectionKey.OP_READ);
     }
 
-    // 异步读取客户端请求消息到服务端缓冲区
     private static void handleRead(SelectionKey key) throws IOException {
         SocketChannel channel = (SocketChannel) key.channel();
 
         ByteBuffer buffer = ByteBuffer.allocate(128);
+        // 10、异步读取客户端请求消息到服务端缓冲区
         channel.read(buffer);
 
         byte[] data = buffer.array();
