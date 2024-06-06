@@ -53,7 +53,6 @@ public class NIOServer {
         }
     }
 
-
     private static void handleAccept(SelectionKey key) throws IOException {
         ServerSocketChannel server = (ServerSocketChannel) key.channel();
         SocketChannel socketChannel = server.accept();
