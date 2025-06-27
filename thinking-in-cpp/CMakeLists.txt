@@ -3,7 +3,8 @@ project(thinking-in-cpp)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(thinking-in-cpp
-        src/main.cpp
-        src/MyClass.hpp
-        src/MyClass.cpp)
+# 添加源文件
+file(GLOB_RECURSE SOURCES "src/*.cpp")
+
+# 添加可执行文件
+add_executable(thinking-in-cpp ${SOURCES})
