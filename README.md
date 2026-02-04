@@ -2,9 +2,6 @@
 
 技术图谱。
 
-- 技术体系.xmind 为总导图
-- detail-xmind 为单项技术详细图谱
-
 # 计算机基础
 
 [thinking-in-computer](https://github.com/yihonglei/road-of-arch/tree/master/thinking-in-computer)
