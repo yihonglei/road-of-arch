@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 from sklearn.linear_model import LinearRegression
 import seaborn as sns
 
-def hello(name):
+def hello01(name):
     # 设置图表风格，让图表更好看
     sns.set_style("whitegrid")
     # -------------------------- 设置中文字体 start --------------------------

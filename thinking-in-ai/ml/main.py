@@ -1,7 +1,4 @@
-from mlbase import hello
+from ml02 import hello02
 
-# Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    hello('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    hello02('PyCharm')
